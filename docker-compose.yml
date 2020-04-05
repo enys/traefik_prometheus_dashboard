@@ -51,11 +51,6 @@ services:
     restart: unless-stopped
     networks:
       - traefik_network
-        #labels:
-        #  - "traefik.docker.network=traefik_network"
-        #  - "traefik.enable=true"
-        #  - "traefik.http.routers.alertmanager-secure.entrypoints=https"
-        #  - "traefik.http.routers.alertmanager-secure.rule=Host(`alertmanager.${TRAEFIK_HOST}`)"
 
   nodeexporter:
     image: prom/node-exporter:v0.18.1
@@ -69,6 +64,13 @@ services:
       - '--path.rootfs=/rootfs'
       - '--path.sysfs=/host/sys'
       - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+    restart: unless-stopped
+    networks:
+      - traefik_network
+
+  pushgateway:
+    image: prom/pushgateway:v1.2.0
+    container_name: pushgateway
     restart: unless-stopped
     networks:
       - traefik_network
