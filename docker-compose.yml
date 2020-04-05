@@ -1,3 +1,5 @@
+---
+
 version: '3.7'
 
 services:
@@ -20,6 +22,7 @@ services:
     container_name: prometheus
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/rules/:/etc/prometheus/rules/
       - prometheus_data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
@@ -28,6 +31,7 @@ services:
       - '--web.console.templates=/etc/prometheus/consoles'
       - '--storage.tsdb.retention.time=200h'
       - '--web.enable-lifecycle'
+    restart: unless-stopped
     networks:
       - traefik_network
     labels:
@@ -35,7 +39,23 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.prometheus-secure.entrypoints=https"
       - "traefik.http.routers.prometheus-secure.rule=Host(`prometheus.${TRAEFIK_HOST}`)"
+
+  alertmanager:
+    image: prom/alertmanager:v0.20.0
+    container_name: alertmanager
+    volumes:
+      - ./alertmanager/config.yml:/etc/alertmanager/config.yml
+    command:
+      - '--config.file=/etc/alertmanager/config.yml'
+      - '--storage.path=/alertmanager'
     restart: unless-stopped
+    networks:
+      - traefik_network
+        #labels:
+        #  - "traefik.docker.network=traefik_network"
+        #  - "traefik.enable=true"
+        #  - "traefik.http.routers.alertmanager-secure.entrypoints=https"
+        #  - "traefik.http.routers.alertmanager-secure.rule=Host(`alertmanager.${TRAEFIK_HOST}`)"
 
 volumes:
   prometheus_data: {}

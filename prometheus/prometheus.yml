@@ -10,7 +10,7 @@ global:
 
 # Load and evaluate rules in this file every 'evaluation_interval' seconds.
 rule_files:
-  - "alert.rules"
+  - "rules/*.yml"
 
 # A scrape configuration containing exactly one endpoint to scrape.
 scrape_configs:
@@ -40,5 +40,5 @@ alerting:
   alertmanagers:
   - scheme: http
     static_configs:
-    - targets: 
+    - targets:
       - 'alertmanager:9093'
