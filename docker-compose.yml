@@ -4,10 +4,10 @@ version: '3.7'
 
 services:
   grafana:
-   image: grafana/grafana:6.7.1
+   image: grafana/grafana:6.7.2
    volumes:
      - grafana_data:/var/lib/grafana
-   #  - ./grafana/provisioning:/etc/grafana/provisioning #will be set up later
+     - ./grafana/provisioning:/etc/grafana/provisioning #will be set up later
    restart: unless-stopped
    networks:
      - traefik_network
