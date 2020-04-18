@@ -12,6 +12,7 @@ services:
    networks:
      - traefik_network
    labels:
+     - "org.label-schema.group=monitoring"
      - "traefik.docker.network=traefik_network"
      - "traefik.enable=true"
      - "traefik.http.routers.grafana-secure.entrypoints=https"
@@ -35,10 +36,13 @@ services:
     networks:
       - traefik_network
     labels:
+      - "org.label-schema.group=monitoring"
       - "traefik.docker.network=traefik_network"
       - "traefik.enable=true"
       - "traefik.http.routers.prometheus-secure.entrypoints=https"
       - "traefik.http.routers.prometheus-secure.rule=Host(`prometheus.${TRAEFIK_HOST}`)"
+      - "traefik.http.routers.prometheus-secure.middlewares=prometheus-auth"
+      - 'traefik.http.middlewares.prometheus-auth.basicauth.users=${TRAEFIK_BASICAUTH}'
 
   alertmanager:
     image: prom/alertmanager:v0.20.0
@@ -51,6 +55,8 @@ services:
     restart: unless-stopped
     networks:
       - traefik_network
+    labels:
+      - "org.label-schema.group=monitoring"
 
   nodeexporter:
     image: prom/node-exporter:v0.18.1
@@ -67,6 +73,8 @@ services:
     restart: unless-stopped
     networks:
       - traefik_network
+    labels:
+      - "org.label-schema.group=monitoring"
 
   pushgateway:
     image: prom/pushgateway:v1.2.0
@@ -74,6 +82,8 @@ services:
     restart: unless-stopped
     networks:
       - traefik_network
+    labels:
+      - "org.label-schema.group=monitoring"
 
   cadvisor:
     image: gcr.io/google-containers/cadvisor:v0.34.0
@@ -88,6 +98,8 @@ services:
     restart: unless-stopped
     networks:
       - traefik_network
+    labels:
+      - "org.label-schema.group=monitoring"
 
 volumes:
   prometheus_data: {}
