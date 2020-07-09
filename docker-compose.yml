@@ -1,0 +1,113 @@
+---
+
+version: '3.7'
+
+services:
+  grafana:
+   image: grafana/grafana:7.1.0-beta2
+   #image: grafana/grafana:7.0.5
+   volumes:
+     - grafana_data:/var/lib/grafana
+     - ./grafana/provisioning:/etc/grafana/provisioning
+   environment:
+     - GF_INSTALL_PLUGINS=grafana-piechart-panel
+   restart: unless-stopped
+   networks:
+     - traefik_network
+   labels:
+     - "org.label-schema.group=monitoring"
+     - "traefik.docker.network=traefik_network"
+     - "traefik.enable=true"
+     - "traefik.http.routers.grafana-secure.entrypoints=https"
+     - "traefik.http.routers.grafana-secure.rule=Host(`grafana.${TRAEFIK_HOST}`)"
+
+  prometheus:
+    image: prom/prometheus:v2.19.2
+    container_name: prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/rules/:/etc/prometheus/rules/
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    restart: unless-stopped
+    networks:
+      - traefik_network
+    labels:
+      - "org.label-schema.group=monitoring"
+      - "traefik.docker.network=traefik_network"
+      - "traefik.enable=true"
+      - "traefik.http.routers.prometheus-secure.entrypoints=https"
+      - "traefik.http.routers.prometheus-secure.rule=Host(`prometheus.${TRAEFIK_HOST}`)"
+      - "traefik.http.routers.prometheus-secure.middlewares=prometheus-auth"
+      - 'traefik.http.middlewares.prometheus-auth.basicauth.users=${TRAEFIK_BASICAUTH}'
+
+  alertmanager:
+    image: prom/alertmanager:v0.21.0
+    container_name: alertmanager
+    volumes:
+      - ./alertmanager/config.yml:/etc/alertmanager/config.yml
+    command:
+      - '--config.file=/etc/alertmanager/config.yml'
+      - '--storage.path=/alertmanager'
+    restart: unless-stopped
+    networks:
+      - traefik_network
+    labels:
+      - "org.label-schema.group=monitoring"
+
+  nodeexporter:
+    image: prom/node-exporter:v1.0.1
+    container_name: nodeexporter
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.rootfs=/rootfs'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+    restart: unless-stopped
+    networks:
+      - traefik_network
+    labels:
+      - "org.label-schema.group=monitoring"
+
+  pushgateway:
+    image: prom/pushgateway:v1.2.0
+    container_name: pushgateway
+    restart: unless-stopped
+    networks:
+      - traefik_network
+    labels:
+      - "org.label-schema.group=monitoring"
+
+  cadvisor:
+    image: gcr.io/google-containers/cadvisor:v0.36.0
+    container_name: cadvisor
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /dev/disk/:/dev/disk:ro
+      - /var/lib/docker:/var/lib/docker:ro
+      - /cgroup:/cgroup:ro #doesn't work on MacOS only for Linux
+    restart: unless-stopped
+    networks:
+      - traefik_network
+    labels:
+      - "org.label-schema.group=monitoring"
+
+volumes:
+  prometheus_data: {}
+  grafana_data: {}
+
+networks:
+  traefik_network:
+    external: true
