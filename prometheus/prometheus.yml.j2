@@ -1,0 +1,23 @@
+global:
+  scrape_interval:     '15s'
+  scrape_timeout:      '15s'
+  evaluation_interval: '15s'
+
+  # Attach these labels to any time series or alerts when communicating with
+  # external systems (federation, remote storage, Alertmanager).
+  external_labels:
+      monitor: 'docker-host-alpha'
+
+# Load and evaluate rules in this file every 'evaluation_interval' seconds.
+rule_files:
+  - "rules/*.yml"
+
+# A scrape configuration containing exactly one endpoint to scrape.
+{{ prometheus_scrape_configs }}
+
+alerting:
+  alertmanagers:
+  - scheme: http
+    static_configs:
+    - targets:
+      - 'alertmanager:9093'

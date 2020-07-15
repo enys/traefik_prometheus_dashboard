@@ -61,43 +61,9 @@ services:
     labels:
       - "org.label-schema.group=monitoring"
 
-  nodeexporter:
-    image: prom/node-exporter:v1.0.1
-    container_name: nodeexporter
-    volumes:
-      - /proc:/host/proc:ro
-      - /sys:/host/sys:ro
-      - /:/rootfs:ro
-    command:
-      - '--path.procfs=/host/proc'
-      - '--path.rootfs=/rootfs'
-      - '--path.sysfs=/host/sys'
-      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
-    restart: unless-stopped
-    networks:
-      - traefik_network
-    labels:
-      - "org.label-schema.group=monitoring"
-
   pushgateway:
     image: prom/pushgateway:v1.2.0
     container_name: pushgateway
-    restart: unless-stopped
-    networks:
-      - traefik_network
-    labels:
-      - "org.label-schema.group=monitoring"
-
-  cadvisor:
-    image: gcr.io/google-containers/cadvisor:v0.36.0
-    container_name: cadvisor
-    volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:ro
-      - /sys:/sys:ro
-      - /dev/disk/:/dev/disk:ro
-      - /var/lib/docker:/var/lib/docker:ro
-      - /cgroup:/cgroup:ro #doesn't work on MacOS only for Linux
     restart: unless-stopped
     networks:
       - traefik_network

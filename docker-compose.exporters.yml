@@ -1,0 +1,49 @@
+
+---
+
+version: '3.7'
+
+services:
+  cadvisor:
+    image: gcr.io/google-containers/cadvisor:v0.36.0
+    container_name: cadvisor
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /dev/disk/:/dev/disk:ro
+      - /var/lib/docker:/var/lib/docker:ro
+      - /cgroup:/cgroup:ro #doesn't work on MacOS only for Linux
+    command:
+      - '-docker_only'
+      - '-housekeeping_interval=10s'
+    restart: unless-stopped
+    networks:
+      - traefik_network
+    labels:
+      - "org.label-schema.group=monitoring"
+
+  nodeexporter:
+    image: prom/node-exporter:v1.0.1
+    container_name: nodeexporter
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+      - /etc/hostname:/etc/host_hostname:ro
+        #- /run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
+    environment:
+      - HOST_HOSTNAME:/etc/host_hostname
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.rootfs=/rootfs'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+        #- '--collector.systemd'
+        #- '--collector.processes'
+    restart: unless-stopped
+    networks:
+      - traefik_network
+    labels:
+      - "org.label-schema.group=monitoring"
+

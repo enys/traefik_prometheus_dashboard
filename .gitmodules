@@ -1,0 +1,3 @@
+[submodule "grafana/external/grafana-dashboards"]
+	path = grafana/provisioning/external/grafana-dashboards
+	url = https://github.com/rfrail3/grafana-dashboards.git
