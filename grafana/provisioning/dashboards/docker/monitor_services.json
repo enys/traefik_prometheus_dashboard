@@ -585,7 +585,7 @@
       "lines": false,
       "linewidth": 2,
       "links": [],
-      "nullPointMode": "connected",
+      "nullPointMode": "null",
       "percentage": false,
       "pointradius": 5,
       "points": true,
@@ -614,7 +614,7 @@
         "msResolution": true,
         "shared": false,
         "sort": 0,
-        "value_type": "cumulative"
+        "value_type": "individual"
       },
       "type": "graph",
       "xaxis": {
@@ -3404,7 +3404,7 @@
   "annotations": {
     "list": []
   },
-  "refresh": "10s",
+  "refresh": "1m",
   "schemaVersion": 12,
   "version": 22,
   "links": [],
