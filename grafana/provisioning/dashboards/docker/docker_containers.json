@@ -157,7 +157,7 @@
           },
           "targets": [
             {
-              "expr": "machine_cpu_cores{nodename=~\"$node\"}",
+              "expr": "sum(machine_cpu_cores{nodename=~\"$node\"})",
               "interval": "",
               "intervalFactor": 2,
               "legendFormat": "",
@@ -644,7 +644,7 @@
               "expr": "node_load1{nodename=~\"$node\"}",
               "interval": "",
               "intervalFactor": 2,
-              "legendFormat": "load 1m",
+              "legendFormat": "load 1m: {{nodename}}",
               "metric": "node_load1",
               "refId": "A",
               "step": 2
@@ -843,9 +843,9 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (name) (rate(container_cpu_usage_seconds_total{nodename=~\"$node\",image!=\"\",container_label_org_label_schema_group=\"\"}[1m])) / scalar(count(node_cpu_seconds_total{nodename=~\"$node\",mode=\"user\"})) * 100",
+              "expr": "sum by (nodename, name) (rate(container_cpu_usage_seconds_total{nodename=~\"$node\",image!=\"\",container_label_org_label_schema_group=\"\"}[1m])) / scalar(count(node_cpu_seconds_total{nodename=~\"$node\",mode=\"user\"})) * 100",
               "intervalFactor": 10,
-              "legendFormat": "{{ name }}",
+              "legendFormat": "{{nodename}}.{{ name }}",
               "metric": "container_cpu_user_seconds_total",
               "refId": "A",
               "step": 10
@@ -932,9 +932,9 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (name)(container_memory_usage_bytes{nodename=~\"$node\",image!=\"\",container_label_org_label_schema_group=\"\"})",
+              "expr": "sum by (nodename, name)(container_memory_usage_bytes{nodename=~\"$node\",image!=\"\",container_label_org_label_schema_group=\"\"})",
               "intervalFactor": 1,
-              "legendFormat": "{{ name }}",
+              "legendFormat": "{{nodename}}.{{ name }}",
               "metric": "container_memory_usage",
               "refId": "A",
               "step": 1
@@ -1013,9 +1013,9 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (name) (container_memory_cache{nodename=~\"$node\",image!=\"\",container_label_org_label_schema_group=\"\"})",
+              "expr": "sum by (nodename, name) (container_memory_cache{nodename=~\"$node\",image!=\"\",container_label_org_label_schema_group=\"\"})",
               "intervalFactor": 2,
-              "legendFormat": "{{name}}",
+              "legendFormat": "{{nodename}}.{{name}}",
               "metric": "container_memory_cache",
               "refId": "A",
               "step": 2
@@ -1102,9 +1102,9 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (name) (rate(container_network_receive_bytes_total{nodename=~\"$node\",image!=\"\",container_label_org_label_schema_group=\"\"}[1m]))",
+              "expr": "sum by (nodename, name) (rate(container_network_receive_bytes_total{nodename=~\"$node\",image!=\"\",container_label_org_label_schema_group=\"\"}[1m]))",
               "intervalFactor": 10,
-              "legendFormat": "{{ name }}",
+              "legendFormat": "{{nodename}}.{{ name }}",
               "metric": "container_network_receive_bytes_total",
               "refId": "A",
               "step": 10
@@ -1183,9 +1183,9 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (name) (rate(container_network_transmit_bytes_total{nodename=~\"$node\",image!=\"\",container_label_org_label_schema_group=\"\"}[1m]))",
+              "expr": "sum by (nodename, name) (rate(container_network_transmit_bytes_total{nodename=~\"$node\",image!=\"\",container_label_org_label_schema_group=\"\"}[1m]))",
               "intervalFactor": 10,
-              "legendFormat": "{{ name }}",
+              "legendFormat": "{{nodename}}.{{ name }}",
               "metric": "container_network_transmit_bytes_total",
               "refId": "A",
               "step": 10
