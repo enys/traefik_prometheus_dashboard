@@ -403,7 +403,7 @@
           },
           "targets": [
             {
-              "expr": "(node_filesystem_size_bytes{nodename=~\"$node\",fstype=\"ext4\"} - node_filesystem_free_bytes{nodename=~\"$node\",fstype=\"ext4\"}) / node_filesystem_size_bytes{nodename=~\"$node\",fstype=\"ext4\"}  * 100",
+              "expr": "sum(node_filesystem_size_bytes{nodename=~\"$node\",fstype=\"ext4\"} - node_filesystem_free_bytes{nodename=~\"$node\",fstype=\"ext4\"}) / sum(node_filesystem_size_bytes{nodename=~\"$node\",fstype=\"ext4\"})  * 100",
               "interval": "30s",
               "intervalFactor": 1,
               "legendFormat": "",
@@ -486,7 +486,7 @@
           },
           "targets": [
             {
-              "expr": "sum(container_fs_usage_bytes{nodename=~\"$node\",device=~\"^/dev/[sv]d[a-z][1-9]$\"})",
+              "expr": "sum(container_fs_usage_bytes{nodename=~\"$node\",device=~\"^/dev/root|[sv]d[a-z][1-9]$\"})",
               "interval": "30s",
               "intervalFactor": 2,
               "refId": "A",
