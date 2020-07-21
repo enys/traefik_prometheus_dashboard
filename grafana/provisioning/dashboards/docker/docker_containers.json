@@ -75,7 +75,7 @@
           },
           "targets": [
             {
-              "expr": "sum(rate(container_cpu_user_seconds_total{image!=\"\"}[1m])) / count(node_cpu_seconds_total{mode=\"user\"}) * 100",
+              "expr": "sum(rate(container_cpu_user_seconds_total{nodename=~\"$node\",image!=\"\"}[1m])) / count(node_cpu_seconds_total{nodename=~\"$node\",mode=\"user\"}) * 100",
               "interval": "10s",
               "intervalFactor": 1,
               "legendFormat": "",
@@ -157,7 +157,7 @@
           },
           "targets": [
             {
-              "expr": "machine_cpu_cores",
+              "expr": "machine_cpu_cores{nodename=~\"$node\"}",
               "interval": "",
               "intervalFactor": 2,
               "legendFormat": "",
@@ -237,7 +237,7 @@
           },
           "targets": [
             {
-              "expr": "(sum(node_memory_MemTotal_bytes) - sum(node_memory_MemFree_bytes+node_memory_Buffers_bytes+node_memory_Cached_bytes) ) / sum(node_memory_MemTotal_bytes) * 100",
+              "expr": "(sum(node_memory_MemTotal_bytes{nodename=~\"$node\"}) - sum(node_memory_MemFree_bytes{nodename=~\"$node\"}+node_memory_Buffers_bytes{nodename=~\"$node\"}+node_memory_Cached_bytes{nodename=~\"$node\"}) ) / sum(node_memory_MemTotal_bytes{nodename=~\"$node\"}) * 100",
               "interval": "10s",
               "intervalFactor": 2,
               "legendFormat": "",
@@ -320,7 +320,7 @@
           },
           "targets": [
             {
-              "expr": "sum(container_memory_usage_bytes{image!=\"\"})",
+              "expr": "sum(container_memory_usage_bytes{nodename=~\"$node\",image!=\"\"})",
               "interval": "10s",
               "intervalFactor": 2,
               "legendFormat": "",
@@ -403,7 +403,7 @@
           },
           "targets": [
             {
-              "expr": "(node_filesystem_size_bytes{fstype=\"aufs\"} - node_filesystem_free_bytes{fstype=\"aufs\"}) / node_filesystem_size_bytes{fstype=\"aufs\"}  * 100",
+              "expr": "(node_filesystem_size_bytes{nodename=~\"$node\",fstype=\"aufs\"} - node_filesystem_free_bytes{nodename=~\"$node\",fstype=\"aufs\"}) / node_filesystem_size_bytes{nodename=~\"$node\",fstype=\"aufs\"}  * 100",
               "interval": "30s",
               "intervalFactor": 1,
               "legendFormat": "",
@@ -486,7 +486,7 @@
           },
           "targets": [
             {
-              "expr": "sum(container_fs_usage_bytes)",
+              "expr": "sum(container_fs_usage_bytes{nodename=~\"$node\"})",
               "interval": "30s",
               "intervalFactor": 2,
               "refId": "A",
@@ -557,7 +557,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "scalar(count(container_memory_usage_bytes{image!=\"\"}) > 0)",
+              "expr": "scalar(count(container_memory_usage_bytes{nodename=~\"$node\",image!=\"\"}) > 0)",
               "interval": "",
               "intervalFactor": 2,
               "legendFormat": "containers",
@@ -641,7 +641,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_load1",
+              "expr": "node_load1{nodename=~\"$node\"}",
               "interval": "",
               "intervalFactor": 2,
               "legendFormat": "load 1m",
@@ -735,7 +735,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(irate(node_disk_read_bytes_total[5m]))",
+              "expr": "sum(irate(node_disk_read_bytes_total{nodename=~\"$node\"}[5m]))",
               "interval": "2s",
               "intervalFactor": 4,
               "legendFormat": "read",
@@ -744,7 +744,7 @@
               "step": 8
             },
             {
-              "expr": "sum(irate(node_disk_written_bytes_total[5m]))",
+              "expr": "sum(irate(node_disk_written_bytes_total{nodename=~\"$node\"}[5m]))",
               "interval": "2s",
               "intervalFactor": 4,
               "legendFormat": "written",
@@ -753,7 +753,7 @@
               "step": 8
             },
             {
-              "expr": "sum(irate(node_disk_io_time_seconds_total[5m]))",
+              "expr": "sum(irate(node_disk_io_time_seconds_total{nodename=~\"$node\"}[5m]))",
               "interval": "2s",
               "intervalFactor": 4,
               "legendFormat": "io time",
@@ -843,7 +843,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (name) (rate(container_cpu_usage_seconds_total{image!=\"\",container_label_org_label_schema_group=\"\"}[1m])) / scalar(count(node_cpu_seconds_total{mode=\"user\"})) * 100",
+              "expr": "sum by (name) (rate(container_cpu_usage_seconds_total{nodename=~\"$node\",image!=\"\",container_label_org_label_schema_group=\"\"}[1m])) / scalar(count(node_cpu_seconds_total{nodename=~\"$node\",mode=\"user\"})) * 100",
               "intervalFactor": 10,
               "legendFormat": "{{ name }}",
               "metric": "container_cpu_user_seconds_total",
@@ -932,7 +932,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (name)(container_memory_usage_bytes{image!=\"\",container_label_org_label_schema_group=\"\"})",
+              "expr": "sum by (name)(container_memory_usage_bytes{nodename=~\"$node\",image!=\"\",container_label_org_label_schema_group=\"\"})",
               "intervalFactor": 1,
               "legendFormat": "{{ name }}",
               "metric": "container_memory_usage",
@@ -1013,7 +1013,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (name) (container_memory_cache{image!=\"\",container_label_org_label_schema_group=\"\"})",
+              "expr": "sum by (name) (container_memory_cache{nodename=~\"$node\",image!=\"\",container_label_org_label_schema_group=\"\"})",
               "intervalFactor": 2,
               "legendFormat": "{{name}}",
               "metric": "container_memory_cache",
@@ -1102,7 +1102,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (name) (rate(container_network_receive_bytes_total{image!=\"\",container_label_org_label_schema_group=\"\"}[1m]))",
+              "expr": "sum by (name) (rate(container_network_receive_bytes_total{nodename=~\"$node\",image!=\"\",container_label_org_label_schema_group=\"\"}[1m]))",
               "intervalFactor": 10,
               "legendFormat": "{{ name }}",
               "metric": "container_network_receive_bytes_total",
@@ -1183,7 +1183,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (name) (rate(container_network_transmit_bytes_total{image!=\"\",container_label_org_label_schema_group=\"\"}[1m]))",
+              "expr": "sum by (name) (rate(container_network_transmit_bytes_total{nodename=~\"$node\",image!=\"\",container_label_org_label_schema_group=\"\"}[1m]))",
               "intervalFactor": 10,
               "legendFormat": "{{ name }}",
               "metric": "container_network_transmit_bytes_total",
@@ -1228,7 +1228,7 @@
     }
   ],
   "time": {
-    "from": "now-15m",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {
@@ -1257,12 +1257,78 @@
     ]
   },
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "tags": [],
+          "text": "default",
+          "value": "default"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "datasource",
+        "multi": false,
+        "name": "DS_PROMETHEUS",
+        "options": [],
+        "query": "prometheus",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_PROMETHEUS}",
+        "definition": "",
+        "hide": 0,
+        "includeAll": true,
+        "index": -1,
+        "label": "Env:",
+        "multi": false,
+        "name": "env",
+        "options": [],
+        "query": "label_values(node_uname_info{job=~\"nodeexporter\"}, env)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": "",
+        "current": {},
+        "datasource": "${DS_PROMETHEUS}",
+        "definition": "",
+        "hide": 0,
+        "includeAll": true,
+        "index": -1,
+        "label": "Host:",
+        "multi": false,
+        "name": "node",
+        "options": [],
+        "query": "label_values(node_uname_info{env=~\"$env\"}, nodename)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
   },
   "annotations": {
     "list": []
   },
-  "refresh": "10s",
+  "refresh": "1m",
   "schemaVersion": 12,
   "version": 8,
   "links": [],
