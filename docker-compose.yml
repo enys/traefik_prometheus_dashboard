@@ -35,6 +35,7 @@ services:
       - '--web.console.templates=/etc/prometheus/consoles'
       - '--storage.tsdb.retention.time=200h'
       - '--web.enable-lifecycle'
+      - '--web.external-url=https://prometheus.${TRAEFIK_HOST}'
     restart: unless-stopped
     networks:
       - traefik_network
