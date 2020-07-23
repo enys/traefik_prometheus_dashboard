@@ -55,7 +55,7 @@ services:
     command:
       - '--config.file=/etc/alertmanager/config.yml'
       - '--storage.path=/alertmanager'
-      - '--web.external-url=alertmanager.${TRAEFIK_HOST}'
+      - '--web.external-url=https://alertmanager.${TRAEFIK_HOST}'
     restart: unless-stopped
     networks:
       - traefik_network
