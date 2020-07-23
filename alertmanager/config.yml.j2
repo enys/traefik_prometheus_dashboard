@@ -4,6 +4,7 @@ global:
 
 route:
   receiver: 'slack'
+  group_by: ['env']
 
 receivers:
   - name: 'slack'
