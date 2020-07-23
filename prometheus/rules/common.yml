@@ -58,6 +58,7 @@ groups:
     labels:
       severity: warning
     annotations:
+      title: "Jenkins high CPU usage"
       summary: "Jenkins high CPU usage"
       description: "Jenkins CPU usage is {{ humanize $value}}%."
 
@@ -67,6 +68,7 @@ groups:
     labels:
       severity: warning
     annotations:
+      title: "Jenkins high memory usage"
       summary: "Jenkins high memory usage"
       description: "Jenkins memory consumption is at {{ humanize $value}}."
 
