@@ -43,7 +43,7 @@ groups:
 - name: containers
   rules:
   - alert: jenkins_down
-    expr: (time() - container_last_seen{name="jenkins"})) > 30
+    expr: (time() - container_last_seen{name="jenkins"}) > 30
     for: 30s
     labels:
       severity: critical
