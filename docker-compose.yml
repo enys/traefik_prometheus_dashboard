@@ -60,6 +60,12 @@ services:
       - traefik_network
     labels:
       - "org.label-schema.group=monitoring"
+      - "traefik.docker.network=traefik_network"
+      - "traefik.enable=true"
+      - "traefik.http.routers.alertmanager-secure.entrypoints=https"
+      - "traefik.http.routers.alertmanager-secure.rule=Host(`alertmanager.${TRAEFIK_HOST}`)"
+      - "traefik.http.routers.alertmanager-secure.middlewares=alertmanager-auth"
+      - 'traefik.http.middlewares.alertmanager-auth.basicauth.users=${TRAEFIK_BASICAUTH}'
 
   pushgateway:
     image: prom/pushgateway:v1.2.0
