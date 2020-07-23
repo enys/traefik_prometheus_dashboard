@@ -4,12 +4,13 @@ global:
 
 route:
   receiver: 'slack'
-  group_by: ['env']
+  group_by: ['severity', 'env']
 
 receivers:
   - name: 'slack'
     slack_configs:
     - send_resolved: true
+      icon_url: https://avatars3.githubusercontent.com/u/3380462
       title: |-
         {% raw %}
         [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ .CommonLabels.alertname }} for {{ .CommonLabels.job }}
