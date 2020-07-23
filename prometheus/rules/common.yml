@@ -19,6 +19,7 @@ groups:
     labels:
       severity: warning
     annotations:
+      title: "High load"
       summary: "Server under high load"
       description: "Docker host is under high load, the avg load 1m is at {{ $value}}. Reported by instance {{ $labels.instance }} of job {{ $labels.job }}."
 
@@ -28,6 +29,7 @@ groups:
     labels:
       severity: warning
     annotations:
+      title: "Memory is almost full"
       summary: "Server memory is almost full"
       description: "Docker host memory usage is {{ humanize $value}}%. Reported by instance {{ $labels.instance }} of job {{ $labels.job }}."
 
@@ -37,13 +39,14 @@ groups:
     labels:
       severity: warning
     annotations:
+      title: "Storage is almost full"
       summary: "Server storage is almost full"
       description: "Docker host storage usage is {{ humanize $value}}%. Reported by instance {{ $labels.instance }} of job {{ $labels.job }}."
 
 - name: containers
   rules:
   - alert: jenkins_down
-    expr: (time() - container_last_seen{name="jenkins"}) > 30
+    expr: (time() - container_last_seen{name="jenkins"}) > 30 OR absent(container_last_seen{name="jenkins"})
     for: 30s
     labels:
       severity: critical
