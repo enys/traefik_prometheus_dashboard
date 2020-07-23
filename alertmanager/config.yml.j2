@@ -9,5 +9,5 @@ receivers:
       - send_resolved: true
         text: "{% raw %}{{ .CommonAnnotations.description }}{% endraw %}"
         username: 'Prometheus'
-        channel: '#<channel-name>'
-        api_url: 'https://hooks.slack.com/services/<webhook-id>'
+        channel: '{{ monitoring_slack_api_channel }}'
+        api_url: 'https://hooks.slack.com/services/{{ monitoring_slack_api_token }}'
