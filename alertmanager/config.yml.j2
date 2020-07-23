@@ -34,6 +34,7 @@ receivers:
           {{ end }}
         {{ end }}
         {% endraw %}
+
       username: 'Prometheus'
       channel: '{{ monitoring_slack_api_channel }}'
       api_url: 'https://hooks.slack.com/services/{{ monitoring_slack_api_token }}'
