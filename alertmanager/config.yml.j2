@@ -28,6 +28,7 @@ receivers:
 
       text: >-
         {% raw %}
+        :chart_with_upwards_trend: *<{{ .GeneratorURL }}|Graph>*
         {{ range .Alerts -}}
         *Alert:* {{ .Annotations.title }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}
 
