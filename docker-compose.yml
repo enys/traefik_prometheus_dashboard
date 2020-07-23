@@ -45,7 +45,7 @@ services:
       - "traefik.http.routers.prometheus-secure.entrypoints=https"
       - "traefik.http.routers.prometheus-secure.rule=Host(`prometheus.${TRAEFIK_HOST}`)"
       - "traefik.http.routers.prometheus-secure.middlewares=prometheus-auth"
-      - 'traefik.http.middlewares.prometheus-auth.basicauth.users=${TRAEFIK_BASICAUTH}'
+      - "traefik.http.middlewares.prometheus-auth.basicauth.users=${TRAEFIK_BASICAUTH}"
 
   alertmanager:
     image: prom/alertmanager:v0.21.0
@@ -55,6 +55,7 @@ services:
     command:
       - '--config.file=/etc/alertmanager/config.yml'
       - '--storage.path=/alertmanager'
+      - '--web.external-url=alertmanager.${TRAEFIK_HOST}'
     restart: unless-stopped
     networks:
       - traefik_network
@@ -65,7 +66,7 @@ services:
       - "traefik.http.routers.alertmanager-secure.entrypoints=https"
       - "traefik.http.routers.alertmanager-secure.rule=Host(`alertmanager.${TRAEFIK_HOST}`)"
       - "traefik.http.routers.alertmanager-secure.middlewares=alertmanager-auth"
-      - 'traefik.http.middlewares.alertmanager-auth.basicauth.users=${TRAEFIK_BASICAUTH}'
+      - "traefik.http.middlewares.alertmanager-auth.basicauth.users=${TRAEFIK_BASICAUTH}"
 
   pushgateway:
     image: prom/pushgateway:v1.2.0
