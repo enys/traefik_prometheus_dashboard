@@ -30,6 +30,8 @@ receivers:
         {{ range .Alerts -}}
         *Alert:* {{ .Annotations.title }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}
 
+        *Status:* {{ .Status}}
+
         *Description:* {{ .Annotations.description }}
 
         *Details:*
