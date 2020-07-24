@@ -18,7 +18,7 @@ receivers:
            {{" "}}(
          {{- with .CommonLabels.Remove .GroupLabels.Names }}
              {{- range $index, $label := .SortedPairs -}}
-               {{- if not (match "^container_label" $label.Name) }}
+               {{- if not (match "^container_label|^id" $label.Name) }}
                  {{ if $index }}, {{ end }}
                  {{- $label.Name }}="{{ $label.Value -}}"
                {{- end }}
