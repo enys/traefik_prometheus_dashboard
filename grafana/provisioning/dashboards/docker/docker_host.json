@@ -477,7 +477,7 @@
           },
           "targets": [
             {
-              "expr": "sum(node_filesystem_free_bytes{nodename=~\"$node\",fstype=\"aufs\"})",
+              "expr": "sum(node_filesystem_free_bytes{nodename=~\"$node\",fstype=\"ext4\"})",
               "interval": "30s",
               "intervalFactor": 1,
               "legendFormat": "",
@@ -1399,7 +1399,7 @@
     }
   ],
   "time": {
-    "from": "now-15m",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {

@@ -26,6 +26,8 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
       - targets: ['cadvisor:8080']
+        labels:
+          nodename: 'monitoring-01'
 
   - job_name: 'prometheus'
     scrape_interval: 10s
