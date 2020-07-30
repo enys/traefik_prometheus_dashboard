@@ -78,6 +78,23 @@ services:
     labels:
       - "org.label-schema.group=monitoring"
 
+  blackboxexporter:
+    image: prom/blackbox-exporter:v0.17.0
+    container_name: blackboxexporter
+    volumes:
+    - ./blackbox_exporter:/etc/blackbox_exporter
+    restart: unless-stopped
+    networks:
+      - traefik_network
+    labels:
+      - "org.label-schema.group=monitoring"
+      - "traefik.docker.network=traefik_network"
+      - "traefik.enable=true"
+      - "traefik.http.routers.blackboxexporter-secure.entrypoints=https"
+      - "traefik.http.routers.blackboxexporter-secure.rule=Host(`blackboxexporter.${TRAEFIK_HOST}`)"
+      - "traefik.http.routers.blackboxexporter-secure.middlewares=blackboxexporter-auth"
+      - "traefik.http.middlewares.blackboxexporter-auth.basicauth.users=${TRAEFIK_BASICAUTH}"
+
 volumes:
   prometheus_data: {}
   grafana_data: {}
