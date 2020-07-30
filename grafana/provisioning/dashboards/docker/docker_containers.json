@@ -844,7 +844,7 @@
           "targets": [
             {
               "expr": "sum by (nodename, name) (rate(container_cpu_usage_seconds_total{nodename=~\"$node\",image!=\"\",container_label_org_label_schema_group=\"\"}[1m])) / scalar(count(node_cpu_seconds_total{nodename=~\"$node\",mode=\"user\"})) * 100",
-              "intervalFactor": 10,
+              "intervalFactor": 1,
               "legendFormat": "{{nodename}}.{{ name }}",
               "metric": "container_cpu_user_seconds_total",
               "refId": "A",
@@ -1103,7 +1103,7 @@
           "targets": [
             {
               "expr": "sum by (nodename, name) (rate(container_network_receive_bytes_total{nodename=~\"$node\",image!=\"\",container_label_org_label_schema_group=\"\"}[1m]))",
-              "intervalFactor": 10,
+              "intervalFactor": 2,
               "legendFormat": "{{nodename}}.{{ name }}",
               "metric": "container_network_receive_bytes_total",
               "refId": "A",
@@ -1184,7 +1184,7 @@
           "targets": [
             {
               "expr": "sum by (nodename, name) (rate(container_network_transmit_bytes_total{nodename=~\"$node\",image!=\"\",container_label_org_label_schema_group=\"\"}[1m]))",
-              "intervalFactor": 10,
+              "intervalFactor": 2,
               "legendFormat": "{{nodename}}.{{ name }}",
               "metric": "container_network_transmit_bytes_total",
               "refId": "A",
