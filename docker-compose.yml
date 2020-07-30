@@ -91,7 +91,7 @@ services:
       - "traefik.docker.network=traefik_network"
       - "traefik.enable=true"
       - "traefik.http.routers.blackboxexporter-secure.entrypoints=https"
-      - "traefik.http.routers.blackboxexporter-secure.rule=Host(`blackboxexporter.${TRAEFIK_HOST}`)"
+      - "traefik.http.routers.blackboxexporter-secure.rule=Host(`bbe.${TRAEFIK_HOST}`)"
       - "traefik.http.routers.blackboxexporter-secure.middlewares=blackboxexporter-auth"
       - "traefik.http.middlewares.blackboxexporter-auth.basicauth.users=${TRAEFIK_BASICAUTH}"
 
