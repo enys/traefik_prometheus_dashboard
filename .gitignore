@@ -243,3 +243,4 @@ com_crashlytics_export_strings.xml
 #env files
 .env
 prometheus/prometheus.yml
+prometheus/rules/common.yml
