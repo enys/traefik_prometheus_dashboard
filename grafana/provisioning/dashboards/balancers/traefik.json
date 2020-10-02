@@ -427,7 +427,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(traefik_entrypoint_requests_total{nodename=~\"$node\",entrypoint=~\"$entrypoint\",code=\"200\"}[5m])",
+          "expr": "sum by (method, code) (rate(traefik_entrypoint_requests_total{nodename=~\"$node\",entrypoint=~\"$entrypoint\",code=\"200\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{method}} : {{code}}",
@@ -514,7 +514,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(traefik_entrypoint_requests_total{nodename=~\"$node\",entrypoint=~\"$entrypoint\",code!=\"200\"}[5m])",
+          "expr": "sum by (method, code) (rate(traefik_entrypoint_requests_total{nodename=~\"$node\",entrypoint=~\"$entrypoint\",code!=\"200\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{ method }} : {{code}}",
@@ -525,7 +525,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Others status code over 5min",
+      "title": "Other status codes over 5min",
       "tooltip": {
         "shared": true,
         "sort": 0,
