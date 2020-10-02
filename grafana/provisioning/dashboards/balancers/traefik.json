@@ -700,7 +700,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(traefik_service_requests_total[5m])) by (service)",
+          "expr": "sum(rate(traefik_service_requests_total{nodename=~\"$node\"}[5m])) by (service)",
           "format": "time_series",
           "instant": false,
           "intervalFactor": 2,
