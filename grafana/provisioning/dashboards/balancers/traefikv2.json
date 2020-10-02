@@ -123,7 +123,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "time() - process_start_time_seconds{job=\"$job\"}",
+          "expr": "avg(time() - process_start_time_seconds{job=\"$job\"})",
           "format": "time_series",
           "intervalFactor": 2,
           "refId": "A"
