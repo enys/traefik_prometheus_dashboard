@@ -141,7 +141,7 @@
           "refId": "A"
         },
         {
-          "expr": "traefik_config_reloads_total{nodename=~\"$node\"}/ traefik_config_reloads_failure_total{nodename=~\"$node\"} ",
+          "expr": "traefik_config_reloads_failure_total{nodename=~\"$node\"} / traefik_config_reloads_total{nodename=~\"$node\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
@@ -156,7 +156,7 @@
         {
           "op": "=",
           "text": "OK",
-          "value": "1"
+          "value": "0"
         }
       ],
       "valueName": "current"
@@ -593,7 +593,7 @@
       "strokeWidth": 1,
       "targets": [
         {
-          "expr": "sum(traefik_service_requests_total) by (nodename) ",
+          "expr": "sum(traefik_service_requests_total{nodename=~\"$node\"}) by (nodename) ",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
