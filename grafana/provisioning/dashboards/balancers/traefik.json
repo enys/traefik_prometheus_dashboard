@@ -78,9 +78,9 @@
       "colorBackground": false,
       "colorValue": true,
       "colors": [
-        "#d44a3a",
+        "#299c46",
         "rgba(237, 129, 40, 0.89)",
-        "#299c46"
+        "#d44a3a"
       ],
       "datasource": "Prometheus",
       "format": "none",
@@ -141,14 +141,14 @@
           "refId": "A"
         },
         {
-          "expr": "traefik_config_reloads_failure_total{nodename=~\"$node\"} / traefik_config_reloads_total{nodename=~\"$node\"}",
+          "expr": "traefik_config_reloads_failure_total{nodename=~\"$node\"} / traefik_config_reloads_total{nodename=~\"$node\"} * 100",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
           "refId": "B"
         }
       ],
-      "thresholds": "0,1",
+      "thresholds": "10,100",
       "title": "$node status",
       "type": "singlestat",
       "valueFontSize": "80%",
