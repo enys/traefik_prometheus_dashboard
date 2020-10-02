@@ -427,10 +427,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (method, code) (rate(traefik_entrypoint_requests_total{nodename=~\"$node\",entrypoint=~\"$entrypoint\",code=\"200\"}[5m]))",
+          "expr": "sum by (entrypoint, method, code) (rate(traefik_entrypoint_requests_total{nodename=~\"$node\",entrypoint=~\"$entrypoint\",code=\"200\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 2,
-          "legendFormat": "{{method}} : {{code}}",
+          "legendFormat": "{{ entrypoint }}.{{method}} : {{code}}",
           "refId": "A"
         }
       ],
@@ -514,10 +514,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (method, code) (rate(traefik_entrypoint_requests_total{nodename=~\"$node\",entrypoint=~\"$entrypoint\",code!=\"200\"}[5m]))",
+          "expr": "sum by (entrypoint, method, code) (rate(traefik_entrypoint_requests_total{nodename=~\"$node\",entrypoint=~\"$entrypoint\",code!=\"200\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 2,
-          "legendFormat": "{{ method }} : {{code}}",
+          "legendFormat": "{{ entrypoint }}.{{ method }} : {{code}}",
           "refId": "A"
         }
       ],
