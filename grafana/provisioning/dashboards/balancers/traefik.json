@@ -141,7 +141,7 @@
           "refId": "A"
         },
         {
-          "expr": "traefik_config_reloads_failure_total{nodename=~\"$node\"} / traefik_config_reloads_total{nodename=~\"$node\"} * 100",
+          "expr": "sum(traefik_config_reloads_failure_total{nodename=~\"$node\"}) / sum(traefik_config_reloads_total{nodename=~\"$node\"} * 100)",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
