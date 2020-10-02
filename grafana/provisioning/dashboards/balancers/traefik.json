@@ -330,7 +330,7 @@
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
-          "legendFormat": "Total requests $node",
+          "legendFormat": "Total requests",
           "refId": "A"
         }
       ],
