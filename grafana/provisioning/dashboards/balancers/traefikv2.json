@@ -787,7 +787,8 @@
         "rightSide": true,
         "show": true,
         "total": true,
-        "values": true
+        "values": true,
+        "hideZero": true
       },
       "lines": true,
       "linewidth": 1,
@@ -883,7 +884,8 @@
         "sort": "avg",
         "sortDesc": true,
         "total": false,
-        "values": true
+        "values": true,
+        "hideZero": true
       },
       "lines": true,
       "linewidth": 1,
@@ -977,7 +979,8 @@
         "sort": "avg",
         "sortDesc": true,
         "total": false,
-        "values": true
+        "values": true,
+        "hideZero": true
       },
       "lines": true,
       "linewidth": 1,
