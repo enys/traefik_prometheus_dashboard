@@ -389,7 +389,8 @@
         "rightSide": true,
         "show": true,
         "total": false,
-        "values": true
+        "values": true,
+        "hideZero": true
       },
       "lines": false,
       "linewidth": 1,
@@ -476,7 +477,8 @@
         "rightSide": true,
         "show": true,
         "total": false,
-        "values": true
+        "values": true,
+        "hideZero": true
       },
       "lines": false,
       "linewidth": 1,
@@ -662,7 +664,8 @@
         "rightSide": true,
         "show": true,
         "total": false,
-        "values": true
+        "values": true,
+        "hideZero": true
       },
       "lines": false,
       "linewidth": 1,
