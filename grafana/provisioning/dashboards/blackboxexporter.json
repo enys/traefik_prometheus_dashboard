@@ -762,29 +762,12 @@
           "refId": "A"
         }
       ],
-      "thresholds": "0,1209600",
+      "thresholds": "864000,2592000",
       "timeFrom": null,
       "title": "SSL Expiry",
       "transparent": false,
       "type": "singlestat",
       "valueFontSize": "80%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        },
-        {
-          "op": "=",
-          "text": "YES",
-          "value": "1"
-        },
-        {
-          "op": "=",
-          "text": "NO",
-          "value": "0"
-        }
-      ],
       "valueName": "current"
     },
     {
@@ -792,9 +775,9 @@
       "colorBackground": false,
       "colorValue": false,
       "colors": [
-        "#299c46",
+        "#d44a3a",
         "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
+        "#299c46"
       ],
       "datasource": "${DS_PROMETHEUS}",
       "format": "s",
