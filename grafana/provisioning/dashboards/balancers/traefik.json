@@ -70,7 +70,7 @@
         "y": 0
       },
       "id": 10,
-      "title": "$backend stats",
+      "title": "$node stats",
       "type": "row"
     },
     {
@@ -134,14 +134,14 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(traefik_config_last_reload_success{http_backend=~\"$backend\"})/count(traefik_config_reloads_total)",
+          "expr": "sum(traefik_config_last_reload_success{nodename=~\"$node\"})/count(traefik_config_reloads_total)",
           "format": "time_series",
           "hide": true,
           "intervalFactor": 2,
           "refId": "A"
         },
         {
-          "expr": "traefik_config_reloads_total{http_backend=~\"$backend\"}/ traefik_config_reloads_failure_total{http_backend=~\"$backend\"} ",
+          "expr": "traefik_config_reloads_total{nodename=~\"$node\"}/ traefik_config_reloads_failure_total{nodename=~\"$node\"} ",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
@@ -149,7 +149,7 @@
         }
       ],
       "thresholds": "0,1",
-      "title": "$backend status",
+      "title": "$node status",
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -193,7 +193,7 @@
       "strokeWidth": 1,
       "targets": [
         {
-          "expr": "sum(traefik_service_requests_total{http_backend=~\"$backend\"}) by (code)",
+          "expr": "sum(traefik_service_requests_total{nodename=~\"$node\"}) by (code)",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
@@ -201,7 +201,7 @@
           "refId": "A"
         }
       ],
-      "title": "$backend return code",
+      "title": "$node return code",
       "type": "grafana-piechart-panel",
       "valueName": "current"
     },
@@ -266,14 +266,14 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(traefik_service_request_duration_seconds_sum{http_backend=~\"$backend\"}) / sum(traefik_service_requests_total{http_backend=~\"$backend\"}) * 1000",
+          "expr": "sum(traefik_service_request_duration_seconds_sum{nodename=~\"$node\"}) / sum(traefik_service_requests_total{nodename=~\"$node\"}) * 1000",
           "format": "time_series",
           "intervalFactor": 2,
           "refId": "A"
         }
       ],
       "thresholds": "",
-      "title": "$backend response time",
+      "title": "$node response time",
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -326,11 +326,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(traefik_service_requests_total{http_backend=~\"$backend\"}[5m]))",
+          "expr": "sum(rate(traefik_service_requests_total{nodename=~\"$node\"}[5m]))",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
-          "legendFormat": "Total requests $backend",
+          "legendFormat": "Total requests $node",
           "refId": "A"
         }
       ],
@@ -338,7 +338,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Total requests over 5min $backend",
+      "title": "Total requests over 5min $node",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -593,15 +593,15 @@
       "strokeWidth": 1,
       "targets": [
         {
-          "expr": "sum(traefik_service_requests_total) by (http_backend) ",
+          "expr": "sum(traefik_service_requests_total) by (nodename) ",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
-          "legendFormat": "{{ http_backend }}",
+          "legendFormat": "{{ nodename }}",
           "refId": "A"
         }
       ],
-      "title": "Requests by backend",
+      "title": "Requests by node",
       "type": "grafana-piechart-panel",
       "valueName": "total"
     },
