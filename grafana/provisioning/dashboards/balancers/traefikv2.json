@@ -1073,7 +1073,8 @@
         "rightSide": true,
         "show": true,
         "total": false,
-        "values": false
+        "values": false,
+        "hideZero": true
       },
       "lines": true,
       "linewidth": 1,
