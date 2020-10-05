@@ -57,7 +57,7 @@
   "description": "Traefik dashboard prometheus",
   "editable": true,
   "gnetId": 4475,
-  "graphTooltip": 0,
+  "graphTooltip": 1,
   "id": null,
   "iteration": 1575468132922,
   "links": [],
@@ -70,26 +70,45 @@
         "y": 0
       },
       "id": 10,
-      "title": "$backend stats",
+      "title": "$node stats",
       "type": "row"
     },
     {
       "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": true,
-      "colors": [
-        "#d44a3a",
-        "rgba(237, 129, 40, 0.89)",
-        "#299c46"
-      ],
       "datasource": "Prometheus",
-      "format": "none",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "OK",
+              "type": 1,
+              "value": "0"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#299c46",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 10
+              },
+              {
+                "color": "#d44a3a",
+                "value": 100
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
       },
       "gridPos": {
         "h": 7,
@@ -100,66 +119,40 @@
       "id": 1,
       "interval": null,
       "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
       "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
       },
-      "tableColumn": "",
+      "pluginVersion": "7.2.0",
       "targets": [
         {
-          "expr": "sum(traefik_config_last_reload_success{http_backend=~\"$backend\"})/count(traefik_config_reloads_total)",
+          "expr": "sum(traefik_config_last_reload_success{nodename=~\"$node\"})/count(traefik_config_reloads_total)",
           "format": "time_series",
           "hide": true,
           "intervalFactor": 2,
           "refId": "A"
         },
         {
-          "expr": "traefik_config_reloads_total{http_backend=~\"$backend\"}/ traefik_config_reloads_failure_total{http_backend=~\"$backend\"} ",
+          "expr": "sum(traefik_config_reloads_failure_total{nodename=~\"$node\"}) / sum(traefik_config_reloads_total{nodename=~\"$node\"} * 100)",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
           "refId": "B"
         }
       ],
-      "thresholds": "0,1",
-      "title": "$backend status",
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "OK",
-          "value": "1"
-        }
-      ],
-      "valueName": "current"
+      "title": "$node status",
+      "type": "stat"
     },
     {
       "aliasColors": {},
@@ -193,7 +186,7 @@
       "strokeWidth": 1,
       "targets": [
         {
-          "expr": "sum(traefik_service_requests_total{http_backend=~\"$backend\"}) by (code)",
+          "expr": "sum(traefik_service_requests_total{nodename=~\"$node\"}) by (code)",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
@@ -201,27 +194,38 @@
           "refId": "A"
         }
       ],
-      "title": "$backend return code",
+      "title": "$node return code",
       "type": "grafana-piechart-panel",
       "valueName": "current"
     },
     {
       "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
       "datasource": "Prometheus",
-      "format": "ms",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
       },
       "gridPos": {
         "h": 7,
@@ -232,58 +236,32 @@
       "id": 4,
       "interval": null,
       "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
       "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": true
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
       },
-      "tableColumn": "",
+      "pluginVersion": "7.2.0",
       "targets": [
         {
-          "expr": "sum(traefik_service_request_duration_seconds_sum{http_backend=~\"$backend\"}) / sum(traefik_service_requests_total{http_backend=~\"$backend\"}) * 1000",
+          "expr": "sum(traefik_service_request_duration_seconds_sum{nodename=~\"$node\"}) / sum(traefik_service_requests_total{nodename=~\"$node\"}) * 1000",
           "format": "time_series",
           "intervalFactor": 2,
           "refId": "A"
         }
       ],
-      "thresholds": "",
-      "title": "$backend response time",
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "avg"
+      "title": "$node response time",
+      "type": "stat"
     },
     {
       "aliasColors": {},
@@ -326,11 +304,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(traefik_service_requests_total{http_backend=~\"$backend\"}[5m]))",
+          "expr": "sum(rate(traefik_service_requests_total{nodename=~\"$node\"}[5m]))",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
-          "legendFormat": "Total requests $backend",
+          "legendFormat": "Total requests",
           "refId": "A"
         }
       ],
@@ -338,7 +316,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Total requests over 5min $backend",
+      "title": "Total requests over 5min $node",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -411,7 +389,8 @@
         "rightSide": true,
         "show": true,
         "total": false,
-        "values": true
+        "values": true,
+        "hideZero": true
       },
       "lines": false,
       "linewidth": 1,
@@ -427,10 +406,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(traefik_entrypoint_requests_total{entrypoint=~\"$entrypoint\",code=\"200\"}[5m])",
+          "expr": "sum by (entrypoint, method, code) (rate(traefik_entrypoint_requests_total{nodename=~\"$node\",entrypoint=~\"$entrypoint\",code=\"200\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 2,
-          "legendFormat": "{{method}} : {{code}}",
+          "legendFormat": "{{ entrypoint }}.{{method}} : {{code}}",
           "refId": "A"
         }
       ],
@@ -498,7 +477,8 @@
         "rightSide": true,
         "show": true,
         "total": false,
-        "values": true
+        "values": true,
+        "hideZero": true
       },
       "lines": false,
       "linewidth": 1,
@@ -514,10 +494,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(traefik_entrypoint_requests_total{entrypoint=~\"$entrypoint\",code!=\"200\"}[5m])",
+          "expr": "sum by (entrypoint, method, code) (rate(traefik_entrypoint_requests_total{nodename=~\"$node\",entrypoint=~\"$entrypoint\",code!=\"200\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 2,
-          "legendFormat": "{{ method }} : {{code}}",
+          "legendFormat": "{{ entrypoint }}.{{ method }} : {{code}}",
           "refId": "A"
         }
       ],
@@ -525,7 +505,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Others status code over 5min",
+      "title": "Other status codes over 5min",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -587,21 +567,21 @@
       },
       "legendType": "Right side",
       "links": [],
-      "maxDataPoints": 3,
+      "maxDataPoints": 1,
       "nullPointMode": "connected",
       "pieType": "pie",
       "strokeWidth": 1,
       "targets": [
         {
-          "expr": "sum(traefik_service_requests_total) by (http_backend) ",
+          "expr": "sum(traefik_service_requests_total{nodename=~\"$node\"}) by (nodename) ",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
-          "legendFormat": "{{ http_backend }}",
+          "legendFormat": "{{ nodename }}",
           "refId": "A"
         }
       ],
-      "title": "Requests by backend",
+      "title": "Requests by node",
       "type": "grafana-piechart-panel",
       "valueName": "total"
     },
@@ -630,13 +610,13 @@
       },
       "legendType": "Right side",
       "links": [],
-      "maxDataPoints": 3,
+      "maxDataPoints": 1,
       "nullPointMode": "connected",
       "pieType": "pie",
       "strokeWidth": 1,
       "targets": [
         {
-          "expr": "sum(traefik_entrypoint_requests_total{entrypoint =~ \"$entrypoint\"}) by (entrypoint) ",
+          "expr": "sum(traefik_entrypoint_requests_total{nodename=~\"$node\",entrypoint =~ \"$entrypoint\"}) by (entrypoint) ",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -684,7 +664,8 @@
         "rightSide": true,
         "show": true,
         "total": false,
-        "values": true
+        "values": true,
+        "hideZero": true
       },
       "lines": false,
       "linewidth": 1,
@@ -700,7 +681,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(traefik_service_requests_total[5m])) by (service)",
+          "expr": "sum(rate(traefik_service_requests_total{nodename=~\"$node\"}[5m])) by (service)",
           "format": "time_series",
           "instant": false,
           "intervalFactor": 2,
@@ -712,7 +693,96 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Status code 200 over 5min",
+      "title": "Service rates over 5min",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 31
+      },
+      "id": 16,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": true,
+        "max": true,
+        "min": true,
+        "rightSide": true,
+        "show": true,
+        "total": false,
+        "values": true,
+        "hideZero": true
+      },
+      "lines": false,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum(rate(traefik_service_requests_total{nodename=~\"$node\", code=~\"(4|5)..\"}[5m])) by (service, code)",
+          "format": "time_series",
+          "instant": false,
+          "intervalFactor": 2,
+          "legendFormat": "{{service}}: {{code}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Bad Status codes over 5min",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -760,21 +830,64 @@
   "templating": {
     "list": [
       {
-        "allValue": null,
-        "current": {},
-        "datasource": "Prometheus",
-        "definition": "label_values(http_backend)",
+        "current": {
+          "selected": false,
+          "tags": [],
+          "text": "default",
+          "value": "default"
+        },
         "hide": 0,
-        "includeAll": true,
-        "label": null,
+        "includeAll": false,
+        "label": "datasource",
         "multi": false,
-        "name": "backend",
+        "name": "DS_PROMETHEUS",
         "options": [],
-        "query": "label_values(http_backend)",
+        "query": "prometheus",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 0,
+        "type": "datasource"
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_PROMETHEUS}",
+        "definition": "",
+        "hide": 0,
+        "includeAll": true,
+        "index": -1,
+        "label": "Env:",
+        "multi": false,
+        "name": "env",
+        "options": [],
+        "query": "label_values(node_uname_info{job=~\"nodeexporter\"}, env)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": "",
+        "current": {},
+        "datasource": "${DS_PROMETHEUS}",
+        "definition": "",
+        "hide": 0,
+        "includeAll": true,
+        "index": -1,
+        "label": "Host:",
+        "multi": false,
+        "name": "node",
+        "options": [],
+        "query": "label_values(node_uname_info{env=~\"$env\"}, nodename)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
