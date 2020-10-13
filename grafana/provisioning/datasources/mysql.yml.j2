@@ -7,6 +7,7 @@ datasources:
     type: mysql
     access: proxy
     orgId: 1
+    database: '{{ item.database }}'
     url: '{{ item.uri }}'
     user: '{{ item.user }}'
     password: '{{ item.password }}'
