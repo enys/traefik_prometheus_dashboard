@@ -1,0 +1,16 @@
+---
+apiVersion: 1
+
+datasources:
+{% for item in grafana_ds_mysql %}
+  - name: 'MySql: {{ item.name }}'
+    type: mysql
+    access: proxy
+    orgId: 1
+    database: '{{ item.database }}'
+    url: '{{ item.uri }}'
+    user: '{{ item.user }}'
+    password: '{{ item.password }}'
+    isDefault: false
+    editable: true
+{% endfor %}
