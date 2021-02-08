@@ -19,8 +19,6 @@ services:
     restart: unless-stopped
     ports:
       - "9338:8080"
-    networks:
-      - traefik_network
     labels:
       - "org.label-schema.group=monitoring"
 
@@ -45,13 +43,8 @@ services:
     restart: unless-stopped
     ports:
       - "9100:9100"
-    networks:
-      - traefik_network
     network_mode: "host"
     pid: "host"
     labels:
       - "org.label-schema.group=monitoring"
 
-networks:
-  traefik_network:
-    external: true
