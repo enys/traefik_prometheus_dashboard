@@ -30,8 +30,7 @@ services:
       - /sys:/host/sys:ro
       - /:/rootfs:ro
       - /etc/hostname:/etc/host_hostname:ro
-        #- /run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
-      - /run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket:ro
+        #- /run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket:ro
     environment:
       - HOST_HOSTNAME:/etc/host_hostname
     command:
@@ -39,8 +38,8 @@ services:
       - '--path.rootfs=/rootfs'
       - '--path.sysfs=/host/sys'
       - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
-      - '--collector.systemd'
-        #- '--collector.processes'
+        #- '--collector.systemd'
+      - '--collector.processes'
       - '--no-collector.rapl'
     restart: unless-stopped
     ports:
