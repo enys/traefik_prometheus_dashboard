@@ -31,6 +31,7 @@ services:
       - /:/rootfs:ro
       - /etc/hostname:/etc/host_hostname:ro
         #- /run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
+      - /run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket:ro
     environment:
       - HOST_HOSTNAME:/etc/host_hostname
     command:
