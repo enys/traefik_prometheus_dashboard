@@ -38,7 +38,7 @@ services:
       - '--path.rootfs=/rootfs'
       - '--path.sysfs=/host/sys'
       - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
-        #- '--collector.systemd'
+      - '--collector.systemd'
         #- '--collector.processes'
       - '--no-collector.rapl'
     restart: unless-stopped
