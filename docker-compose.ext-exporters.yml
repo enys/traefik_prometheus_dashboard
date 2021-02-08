@@ -42,8 +42,9 @@ services:
       - '--collector.processes'
       - '--no-collector.rapl'
     restart: unless-stopped
-    ports:
-      - "9100:9100"
+    # Not compatible with network_mode host
+    #ports:
+    #  - "9100:9100"
     network_mode: "host"
     pid: "host"
     labels:
