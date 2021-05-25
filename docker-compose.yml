@@ -4,7 +4,7 @@ version: '3.7'
 
 services:
   grafana:
-   image: grafana/grafana:7.4.0
+   image: grafana/grafana:7.5.5
    volumes:
      - grafana_data:/var/lib/grafana
      - ./grafana/provisioning:/etc/grafana/provisioning
@@ -21,7 +21,7 @@ services:
      - "traefik.http.routers.grafana-secure.rule=Host(`grafana.${TRAEFIK_HOST}`)"
 
   prometheus:
-    image: prom/prometheus:v2.24.1
+    image: prom/prometheus:v2.27.1
     container_name: prometheus
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
@@ -78,7 +78,7 @@ services:
       - "org.label-schema.group=monitoring"
 
   blackboxexporter:
-    image: prom/blackbox-exporter:v0.17.0
+    image: prom/blackbox-exporter:v0.19.0
     container_name: blackboxexporter
     volumes:
     - ./blackbox_exporter:/etc/blackbox_exporter
