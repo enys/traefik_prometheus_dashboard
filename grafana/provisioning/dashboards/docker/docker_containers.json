@@ -1013,6 +1013,87 @@
           "steppedLine": false,
           "targets": [
             {
+              "expr": "sum by (nodename, name) (container_memory_working_set_bytes{nodename=~\"$node\",image!=\"\",container_label_org_label_schema_group=\"\"})",
+              "intervalFactor": 2,
+              "legendFormat": "{{nodename}}.{{name}}",
+              "metric": "container_memory_working_set_bytes",
+              "refId": "A",
+              "step": 2
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Container Working Set Memory Usage",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "bytes",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Prometheus",
+          "decimals": 2,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 12,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "rightSide": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
               "expr": "sum by (nodename, name) (container_memory_cache{nodename=~\"$node\",image!=\"\",container_label_org_label_schema_group=\"\"})",
               "intervalFactor": 2,
               "legendFormat": "{{nodename}}.{{name}}",
@@ -1330,7 +1411,7 @@
   },
   "refresh": "1m",
   "schemaVersion": 12,
-  "version": 8,
+  "version": 9,
   "links": [],
   "gnetId": null
 }
