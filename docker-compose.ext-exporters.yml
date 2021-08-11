@@ -23,7 +23,7 @@ services:
       - "org.label-schema.group=monitoring"
 
   nodeexporter:
-    image: prom/node-exporter:v1.1.2
+    image: prom/node-exporter:v1.2.2
     container_name: nodeexporter
     volumes:
       - /proc:/host/proc:ro
@@ -37,7 +37,7 @@ services:
       - '--path.procfs=/host/proc'
       - '--path.rootfs=/rootfs'
       - '--path.sysfs=/host/sys'
-      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
         #- '--collector.systemd'
       - '--collector.processes'
       - '--no-collector.rapl'

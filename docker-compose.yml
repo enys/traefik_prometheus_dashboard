@@ -4,12 +4,13 @@ version: '3.7'
 
 services:
   grafana:
-   image: grafana/grafana:7.5.5
+   image: grafana/grafana:8.1.1
    volumes:
      - grafana_data:/var/lib/grafana
      - ./grafana/provisioning:/etc/grafana/provisioning
    environment:
      - GF_INSTALL_PLUGINS=grafana-piechart-panel
+     - GF_SERVER_ROOT_URL=https://grafana.${TRAEFIK_HOST}
    restart: unless-stopped
    networks:
      - traefik_network
@@ -21,7 +22,7 @@ services:
      - "traefik.http.routers.grafana-secure.rule=Host(`grafana.${TRAEFIK_HOST}`)"
 
   prometheus:
-    image: prom/prometheus:v2.27.1
+    image: prom/prometheus:v2.28.1
     container_name: prometheus
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
