@@ -270,7 +270,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.2.0",
+      "pluginVersion": "8.2.1",
       "targets": [
         {
           "expr": "sum(traefik_service_request_duration_seconds_sum{nodename=~\"$node\"}) / sum(traefik_service_requests_total{nodename=~\"$node\"}) * 1000",
@@ -289,12 +289,14 @@
       "dashes": false,
       "datasource": "Prometheus",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 24,
         "x": 0,
         "y": 8
       },
+      "hiddenSeries": false,
       "id": 3,
       "legend": {
         "alignAsTable": true,
@@ -504,6 +506,7 @@
       "links": [],
       "nullPointMode": "null",
       "percentage": false,
+      "pluginVersion": "8.2.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -562,16 +565,26 @@
       }
     },
     {
-      "aliasColors": {},
-      "breakPoint": "50%",
       "cacheTimeout": null,
-      "combine": {
-        "label": "Others",
-        "threshold": 0
-      },
       "datasource": "Prometheus",
-      "fontSize": "80%",
-      "format": "short",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "unit": "short"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 7,
         "w": 12,
@@ -580,16 +593,29 @@
       },
       "id": 7,
       "interval": null,
-      "legend": {
-        "show": true,
-        "values": true
-      },
-      "legendType": "Right side",
       "links": [],
       "maxDataPoints": 1,
-      "nullPointMode": "connected",
+      "options": {
+      "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "right",
+          "values": [
+            "value"
+          ]
+      },
       "pieType": "pie",
-      "strokeWidth": 1,
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
       "targets": [
         {
           "expr": "sum(traefik_service_requests_total{nodename=~\"$node\"}) by (nodename) ",
@@ -601,20 +627,29 @@
         }
       ],
       "title": "Requests by node",
-      "type": "grafana-piechart-panel",
-      "valueName": "total"
+      "type": "piechart"
     },
     {
-      "aliasColors": {},
-      "breakPoint": "50%",
       "cacheTimeout": null,
-      "combine": {
-        "label": "Others",
-        "threshold": 0
-      },
       "datasource": "Prometheus",
-      "fontSize": "80%",
-      "format": "short",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "unit": "short"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 7,
         "w": 12,
@@ -623,16 +658,29 @@
       },
       "id": 8,
       "interval": null,
-      "legend": {
-        "show": true,
-        "values": true
-      },
-      "legendType": "Right side",
       "links": [],
       "maxDataPoints": 1,
-      "nullPointMode": "connected",
+      "options": {
+      "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "right",
+          "values": [
+            "value"
+          ]
+      },
       "pieType": "pie",
-      "strokeWidth": 1,
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
       "targets": [
         {
           "expr": "sum(traefik_entrypoint_requests_total{nodename=~\"$node\",entrypoint =~ \"$entrypoint\"}) by (entrypoint) ",
@@ -644,8 +692,7 @@
         }
       ],
       "title": "Requests by protocol",
-      "type": "grafana-piechart-panel",
-      "valueName": "total"
+      "type": "piechart"
     },
     {
       "collapsed": false,
@@ -840,7 +887,7 @@
     }
   ],
   "refresh": "5m",
-  "schemaVersion": 16,
+  "schemaVersion": 31,
   "style": "dark",
   "tags": [
     "traefik",
