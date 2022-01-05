@@ -883,7 +883,7 @@
         "multi": false,
         "name": "node",
         "options": [],
-        "query": "label_values(node_uname_info{env=~\"$env\"}, nodename)",
+        "query": "label_values({__name__=~\"node_uname_info|traefik_config_last_reload_failure\", env=~\"$env\"} , nodename)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
