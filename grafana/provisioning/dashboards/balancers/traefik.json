@@ -18,12 +18,6 @@
     },
     {
       "type": "panel",
-      "id": "grafana-piechart-panel",
-      "name": "Pie Chart",
-      "version": "1.3.9"
-    },
-    {
-      "type": "panel",
       "id": "graph",
       "name": "Graph",
       "version": "5.0.0"
@@ -134,7 +128,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.2.0",
+      "pluginVersion": "8.2.1",
       "targets": [
         {
           "expr": "sum(traefik_config_last_reload_success{nodename=~\"$node\"})/count(traefik_config_reloads_total)",
@@ -155,16 +149,26 @@
       "type": "stat"
     },
     {
-      "aliasColors": {},
-      "breakPoint": "50%",
       "cacheTimeout": null,
-      "combine": {
-        "label": "Others",
-        "threshold": 0
-      },
       "datasource": "Prometheus",
-      "fontSize": "80%",
-      "format": "short",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "unit": "short"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 7,
         "w": 8,
@@ -173,17 +177,31 @@
       },
       "id": 2,
       "interval": null,
-      "legend": {
-        "percentage": true,
-        "show": true,
-        "values": true
-      },
-      "legendType": "Right side",
       "links": [],
       "maxDataPoints": 3,
-      "nullPointMode": "connected",
+      "options": {
+        "displayLabels": [],
+      "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "right",
+          "values": [
+            "value",
+            "percent"
+          ]
+      },
       "pieType": "pie",
-      "strokeWidth": 1,
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
       "targets": [
         {
           "expr": "sum(traefik_service_requests_total{nodename=~\"$node\"}) by (code)",
@@ -195,8 +213,8 @@
         }
       ],
       "title": "$node return code",
-      "type": "grafana-piechart-panel",
-      "valueName": "current"
+      "transparent": true,
+      "type": "piechart"
     },
     {
       "cacheTimeout": null,
@@ -206,14 +224,15 @@
           "custom": {},
           "mappings": [
             {
-              "id": 0,
-              "op": "=",
-              "text": "N/A",
-              "type": 1,
-              "value": "null"
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
             }
           ],
-          "nullValueMode": "connected",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -950,5 +969,5 @@
   "timezone": "",
   "title": "Traefik",
   "uid": "qPdAviJmz",
-  "version": 15
+  "version": 16
 }
