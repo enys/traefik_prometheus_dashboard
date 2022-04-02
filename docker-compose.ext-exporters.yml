@@ -19,6 +19,7 @@ services:
     command:
       - '-docker_only'
       - '-housekeeping_interval=10s'
+      - '--disable_metrics=accelerator,cpu_topology,disk,memory_numa,tcp,udp,percpu,sched,process,hugetlb,referenced_memory,resctrl,cpuset,advtcp,memory_numa'
     restart: unless-stopped
     ports:
       - "9338:8080"
