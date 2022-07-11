@@ -20,7 +20,7 @@
   "gnetId": 10371,
   "graphTooltip": 1,
   "id": 9,
-  "iteration": 1657554657428,
+  "iteration": 1657555168784,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -1804,102 +1804,97 @@
       "type": "timeseries"
     },
     {
-      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "filterable": true,
+            "minWidth": 100
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
       "gridPos": {
-        "h": 1,
+        "h": 9,
         "w": 24,
         "x": 0,
         "y": 34
       },
-      "id": 115,
-      "panels": [],
-      "title": "Custom metrics",
-      "type": "row"
-    },
-    {
-      "aliasColors": {},
-      "bars": true,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": {
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 8,
-        "w": 8,
-        "x": 0,
-        "y": 35
-      },
-      "hiddenSeries": false,
       "id": 113,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": false,
-        "total": false,
-        "values": false
-      },
-      "lines": false,
-      "linewidth": 1,
       "links": [],
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "label"
+          }
+        ]
       },
-      "percentage": false,
       "pluginVersion": "8.4.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
-          "expr": "com_graphaware_neo4j_monitoring_MonitorProcedure_my_timer * 10000",
-          "format": "time_series",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "exemplar": false,
+          "expr": "label_replace({__name__=~\"neo4j_(.*)_ids_in_use(.*)\", job='$job', pod=~\"$neo4j_instance\"}, \"label\", \"$1.$2\", \"__name__\", \"neo4j_(.*)_ids_in_use(.+)\")",
+          "format": "table",
+          "instant": true,
+          "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "",
+          "legendFormat": "{{pod}}: {{label}}",
           "refId": "A"
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
-      "title": "Custom metric my-timer",
-      "tooltip": {
-        "shared": false,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transparent": true,
-      "type": "graph",
-      "xaxis": {
-        "mode": "histogram",
-        "show": true,
-        "values": [
-          "total"
-        ]
-      },
-      "yaxes": [
+      "title": "Database entity sizes",
+      "transformations": [
         {
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        },
-        {
-          "format": "short",
-          "logBase": 1,
-          "show": true
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "job",
+                "label",
+                "Value",
+                "pod"
+              ]
+            }
+          }
         }
       ],
-      "yaxis": {
-        "align": false
-      }
+      "transparent": true,
+      "type": "table"
     },
     {
       "collapsed": false,
@@ -1908,6 +1903,19 @@
         "w": 24,
         "x": 0,
         "y": 43
+      },
+      "id": 115,
+      "panels": [],
+      "title": "Database metrics",
+      "type": "row"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 44
       },
       "id": 21,
       "panels": [],
@@ -1930,7 +1938,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 44
+        "y": 45
       },
       "hiddenSeries": false,
       "id": 18,
@@ -2024,7 +2032,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 44
+        "y": 45
       },
       "hiddenSeries": false,
       "id": 25,
@@ -2170,7 +2178,7 @@
         "h": 9,
         "w": 8,
         "x": 16,
-        "y": 44
+        "y": 45
       },
       "hiddenSeries": false,
       "id": 58,
@@ -2263,7 +2271,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 53
+        "y": 54
       },
       "hiddenSeries": false,
       "id": 31,
@@ -2357,7 +2365,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 53
+        "y": 54
       },
       "hiddenSeries": false,
       "id": 33,
@@ -2452,7 +2460,7 @@
         "h": 9,
         "w": 8,
         "x": 16,
-        "y": 53
+        "y": 54
       },
       "hiddenSeries": false,
       "id": 57,
@@ -2538,7 +2546,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 62
+        "y": 63
       },
       "id": 29,
       "panels": [],
@@ -2561,7 +2569,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 63
+        "y": 64
       },
       "hiddenSeries": false,
       "id": 61,
@@ -2655,7 +2663,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 63
+        "y": 64
       },
       "hiddenSeries": false,
       "id": 71,
@@ -2749,7 +2757,7 @@
         "h": 9,
         "w": 8,
         "x": 16,
-        "y": 63
+        "y": 64
       },
       "hiddenSeries": false,
       "id": 74,
@@ -2857,7 +2865,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 72
+        "y": 73
       },
       "hiddenSeries": false,
       "id": 63,
@@ -2964,7 +2972,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 72
+        "y": 73
       },
       "hiddenSeries": false,
       "id": 72,
@@ -3050,7 +3058,7 @@
         "h": 9,
         "w": 8,
         "x": 16,
-        "y": 72
+        "y": 73
       },
       "hiddenSeries": false,
       "id": 62,
@@ -3136,7 +3144,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 81
+        "y": 82
       },
       "hiddenSeries": false,
       "id": 66,
@@ -3230,7 +3238,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 81
+        "y": 82
       },
       "hiddenSeries": false,
       "id": 70,
@@ -3324,7 +3332,7 @@
         "h": 9,
         "w": 8,
         "x": 16,
-        "y": 81
+        "y": 82
       },
       "hiddenSeries": false,
       "id": 73,
@@ -3418,7 +3426,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 90
+        "y": 91
       },
       "hiddenSeries": false,
       "id": 69,
@@ -3511,7 +3519,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 90
+        "y": 91
       },
       "hiddenSeries": false,
       "id": 51,
@@ -3663,7 +3671,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 99
+        "y": 100
       },
       "id": 52,
       "links": [],
@@ -3717,7 +3725,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 99
+        "y": 100
       },
       "hiddenSeries": false,
       "id": 85,
@@ -3814,7 +3822,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 108
+        "y": 109
       },
       "id": 44,
       "panels": [],
@@ -3837,7 +3845,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 109
+        "y": 110
       },
       "hiddenSeries": false,
       "id": 42,
@@ -3991,7 +3999,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 109
+        "y": 110
       },
       "hiddenSeries": false,
       "id": 60,
@@ -4087,7 +4095,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 118
+        "y": 119
       },
       "hiddenSeries": false,
       "id": 59,
@@ -4197,7 +4205,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 127
+        "y": 128
       },
       "hiddenSeries": false,
       "id": 86,
@@ -4298,7 +4306,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 136
+        "y": 137
       },
       "id": 102,
       "panels": [],
@@ -4319,7 +4327,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 137
+        "y": 138
       },
       "hiddenSeries": false,
       "id": 106,
@@ -4414,7 +4422,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 137
+        "y": 138
       },
       "hiddenSeries": false,
       "id": 97,
@@ -4504,7 +4512,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 137
+        "y": 138
       },
       "hiddenSeries": false,
       "id": 108,
@@ -4590,7 +4598,7 @@
         "h": 8,
         "w": 10,
         "x": 0,
-        "y": 145
+        "y": 146
       },
       "heatmap": {},
       "hideZeroBuckets": true,
@@ -4648,7 +4656,7 @@
         "h": 8,
         "w": 8,
         "x": 10,
-        "y": 145
+        "y": 146
       },
       "hiddenSeries": false,
       "id": 135,
@@ -4738,7 +4746,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 153
+        "y": 154
       },
       "id": 47,
       "panels": [],
@@ -4760,7 +4768,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 154
+        "y": 155
       },
       "hiddenSeries": false,
       "id": 49,
@@ -4867,7 +4875,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 154
+        "y": 155
       },
       "hiddenSeries": false,
       "id": 136,
@@ -4964,7 +4972,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 163
+        "y": 164
       },
       "id": 78,
       "panels": [],
@@ -5059,7 +5067,7 @@
       },
       {
         "current": {
-          "selected": false,
+          "selected": true,
           "text": [
             "v4small-m.preprod-general01"
           ],
@@ -5092,6 +5100,7 @@
       {
         "allValue": "",
         "current": {
+          "isNone": true,
           "selected": false,
           "text": "None",
           "value": ""
@@ -5124,7 +5133,7 @@
         "auto_count": 30,
         "auto_min": "30s",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
