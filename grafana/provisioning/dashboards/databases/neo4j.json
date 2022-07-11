@@ -20,7 +20,7 @@
   "gnetId": 10371,
   "graphTooltip": 0,
   "id": 9,
-  "iteration": 1657533441580,
+  "iteration": 1657539665122,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -713,6 +713,7 @@
     },
     {
       "datasource": {
+        "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
@@ -774,11 +775,30 @@
       "pluginVersion": "8.4.5",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "exemplar": true,
           "expr": "neo4j_transaction_last_closed_tx_id_total{job='$job', instance=~\"$leader\"}",
           "format": "time_series",
+          "hide": true,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "Last Closed Write Transaction ID",
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "irate(\n    sum(label_replace({__name__=~\"neo4j_(.*)transaction_last_closed_tx_id_total\", job='$job', pod=~\"$neo4j_instance\"}, \"label\", \"$1.$2\", \"__name__\", \"neo4j_(.*)transaction_last_closed_tx_id_total(.+)\"))[$interval:]\n)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "B"
         }
       ],
       "title": "Last Closed Transaction ID",
@@ -787,6 +807,7 @@
     },
     {
       "datasource": {
+        "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
       "description": "Instant rate",
@@ -853,10 +874,30 @@
       "pluginVersion": "8.4.5",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "exemplar": true,
           "expr": "irate(neo4j_transaction_committed_total{job='$job', instance=\"$leader\"}[$interval])",
           "format": "time_series",
+          "hide": true,
+          "interval": "",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "irate(\n    sum(label_replace({__name__=~\"neo4j_(.*)_transaction_committed_total\", job='$job', pod=~\"$neo4j_instance\"}, \"label\", \"$1.$2\", \"__name__\", \"neo4j_(.*)_transaction_committed_total(.+)\"))[$interval:]\n)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "B"
         }
       ],
       "title": "Committed Transaction Speed",
@@ -865,6 +906,7 @@
     },
     {
       "datasource": {
+        "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
       "description": "Instant rate",
@@ -931,10 +973,30 @@
       "pluginVersion": "8.4.5",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "exemplar": true,
           "expr": "irate(neo4j_transaction_rollbacks_total{job=\"$job\", instance=\"$leader\"}[$interval])",
           "format": "time_series",
+          "hide": true,
+          "interval": "",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "irate(\n    sum(label_replace({__name__=~\"neo4j_(.*)_transaction_rollbacks_total\", job='$job', pod=~\"$neo4j_instance\"}, \"label\", \"$1.$2\", \"__name__\", \"neo4j_(.*)_itransaction_rollbacks_total(.+)\"))[$interval:]\n)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "B"
         }
       ],
       "title": "Rolled back Transaction Speed",
@@ -1178,6 +1240,7 @@
     },
     {
       "datasource": {
+        "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
@@ -1239,11 +1302,29 @@
       "pluginVersion": "8.4.5",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "exemplar": true,
           "expr": "neo4j_transaction_last_committed_tx_id_total{job='$job', instance=\"$leader\"}",
           "format": "time_series",
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "Last Committed Transaction ID",
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "irate(\n    sum(label_replace({__name__=~\"neo4j_(.*)_transaction_last_committed_tx_id_total\", job='$job', pod=~\"$neo4j_instance\"}, \"label\", \"$1.$2\", \"__name__\", \"neo4j_(.*)_transaction_last_committed_tx_id_total(.+)\"))[$interval:]\n)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "B"
         }
       ],
       "title": "Last Committed Write Transaction ID",
@@ -5015,8 +5096,7 @@
       {
         "allValue": "",
         "current": {
-          "isNone": true,
-          "selected": true,
+          "selected": false,
           "text": "None",
           "value": ""
         },
