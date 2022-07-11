@@ -19,8 +19,8 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 10371,
   "graphTooltip": 0,
-  "id": 44,
-  "iteration": 1657465377531,
+  "id": 9,
+  "iteration": 1657531979891,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -3926,7 +3926,7 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 9,
-        "w": 13,
+        "w": 24,
         "x": 0,
         "y": 118
       },
@@ -4036,9 +4036,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 9,
-        "w": 11,
-        "x": 13,
-        "y": 118
+        "w": 24,
+        "x": 0,
+        "y": 127
       },
       "hiddenSeries": false,
       "id": 86,
@@ -4139,7 +4139,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 127
+        "y": 136
       },
       "id": 102,
       "panels": [],
@@ -4160,7 +4160,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 128
+        "y": 137
       },
       "hiddenSeries": false,
       "id": 106,
@@ -4255,7 +4255,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 128
+        "y": 137
       },
       "hiddenSeries": false,
       "id": 97,
@@ -4345,7 +4345,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 128
+        "y": 137
       },
       "hiddenSeries": false,
       "id": 108,
@@ -4431,7 +4431,7 @@
         "h": 8,
         "w": 10,
         "x": 0,
-        "y": 136
+        "y": 145
       },
       "heatmap": {},
       "hideZeroBuckets": true,
@@ -4489,7 +4489,7 @@
         "h": 8,
         "w": 8,
         "x": 10,
-        "y": 136
+        "y": 145
       },
       "hiddenSeries": false,
       "id": 135,
@@ -4579,7 +4579,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 144
+        "y": 153
       },
       "id": 47,
       "panels": [],
@@ -4601,7 +4601,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 145
+        "y": 154
       },
       "hiddenSeries": false,
       "id": 49,
@@ -4708,7 +4708,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 145
+        "y": 154
       },
       "hiddenSeries": false,
       "id": 136,
@@ -4805,7 +4805,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 154
+        "y": 163
       },
       "id": 78,
       "panels": [],
@@ -4931,7 +4931,7 @@
       },
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": [
             "neo4j-eenys-0"
           ],
@@ -4964,8 +4964,7 @@
       {
         "allValue": "",
         "current": {
-          "isNone": true,
-          "selected": true,
+          "selected": false,
           "text": "None",
           "value": ""
         },
@@ -4997,7 +4996,7 @@
         "auto_count": 30,
         "auto_min": "30s",
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -5119,6 +5118,6 @@
   "timezone": "",
   "title": "Neo4j Dashboard",
   "uid": "VdDGFqUik",
-  "version": 11,
+  "version": 1,
   "weekStart": ""
 }
