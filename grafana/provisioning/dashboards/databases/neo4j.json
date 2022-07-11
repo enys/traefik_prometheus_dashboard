@@ -20,7 +20,7 @@
   "gnetId": 10371,
   "graphTooltip": 1,
   "id": 9,
-  "iteration": 1657548208123,
+  "iteration": 1657548529907,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -144,7 +144,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 9
+        "y": 5
       },
       "id": 14,
       "panels": [],
@@ -212,7 +212,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 10
+        "y": 6
       },
       "id": 2,
       "links": [],
@@ -327,7 +327,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 10
+        "y": 6
       },
       "id": 40,
       "links": [],
@@ -454,7 +454,7 @@
         "h": 8,
         "w": 3,
         "x": 16,
-        "y": 10
+        "y": 6
       },
       "id": 82,
       "links": [],
@@ -551,7 +551,7 @@
         "h": 8,
         "w": 3,
         "x": 19,
-        "y": 10
+        "y": 6
       },
       "id": 91,
       "links": [],
@@ -650,7 +650,7 @@
         "h": 5,
         "w": 2,
         "x": 22,
-        "y": 10
+        "y": 6
       },
       "id": 121,
       "links": [],
@@ -704,7 +704,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 18
+        "y": 14
       },
       "id": 16,
       "panels": [],
@@ -753,7 +753,7 @@
         "h": 2,
         "w": 2,
         "x": 0,
-        "y": 19
+        "y": 15
       },
       "id": 8,
       "links": [],
@@ -854,7 +854,7 @@
         "h": 4,
         "w": 3,
         "x": 2,
-        "y": 19
+        "y": 15
       },
       "id": 81,
       "links": [],
@@ -953,7 +953,7 @@
         "h": 4,
         "w": 3,
         "x": 5,
-        "y": 19
+        "y": 15
       },
       "id": 84,
       "links": [],
@@ -1064,7 +1064,7 @@
         "h": 10,
         "w": 8,
         "x": 8,
-        "y": 19
+        "y": 15
       },
       "id": 23,
       "links": [],
@@ -1162,7 +1162,7 @@
         "h": 10,
         "w": 8,
         "x": 16,
-        "y": 19
+        "y": 15
       },
       "id": 3,
       "links": [],
@@ -1280,7 +1280,7 @@
         "h": 2,
         "w": 2,
         "x": 0,
-        "y": 21
+        "y": 17
       },
       "id": 19,
       "links": [],
@@ -1392,7 +1392,7 @@
         "h": 7,
         "w": 8,
         "x": 0,
-        "y": 23
+        "y": 19
       },
       "id": 7,
       "links": [],
@@ -1525,7 +1525,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 29
+        "y": 25
       },
       "id": 39,
       "links": [],
@@ -1634,7 +1634,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 29
+        "y": 25
       },
       "id": 38,
       "links": [],
@@ -1743,7 +1743,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 30
+        "y": 26
       },
       "id": 35,
       "links": [],
@@ -1809,7 +1809,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 38
+        "y": 34
       },
       "id": 115,
       "panels": [],
@@ -1830,7 +1830,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 39
+        "y": 35
       },
       "hiddenSeries": false,
       "id": 113,
@@ -1907,7 +1907,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 47
+        "y": 43
       },
       "id": 21,
       "panels": [],
@@ -1930,7 +1930,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 48
+        "y": 44
       },
       "hiddenSeries": false,
       "id": 18,
@@ -2024,7 +2024,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 48
+        "y": 44
       },
       "hiddenSeries": false,
       "id": 25,
@@ -2166,7 +2166,7 @@
         "h": 9,
         "w": 8,
         "x": 16,
-        "y": 48
+        "y": 44
       },
       "hiddenSeries": false,
       "id": 58,
@@ -2259,7 +2259,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 57
+        "y": 53
       },
       "hiddenSeries": false,
       "id": 31,
@@ -2301,7 +2301,7 @@
           "hide": false,
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{label}} {{instance}}",
+          "legendFormat": "{{pod}}: {{label}} ",
           "refId": "A"
         }
       ],
@@ -2353,7 +2353,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 57
+        "y": 53
       },
       "hiddenSeries": false,
       "id": 33,
@@ -2448,7 +2448,7 @@
         "h": 9,
         "w": 8,
         "x": 16,
-        "y": 57
+        "y": 53
       },
       "hiddenSeries": false,
       "id": 57,
@@ -2534,7 +2534,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 66
+        "y": 62
       },
       "id": 29,
       "panels": [],
@@ -2557,7 +2557,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 67
+        "y": 63
       },
       "hiddenSeries": false,
       "id": 61,
@@ -2651,7 +2651,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 67
+        "y": 63
       },
       "hiddenSeries": false,
       "id": 71,
@@ -2745,7 +2745,7 @@
         "h": 9,
         "w": 8,
         "x": 16,
-        "y": 67
+        "y": 63
       },
       "hiddenSeries": false,
       "id": 74,
@@ -2853,7 +2853,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 76
+        "y": 72
       },
       "hiddenSeries": false,
       "id": 63,
@@ -2960,7 +2960,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 76
+        "y": 72
       },
       "hiddenSeries": false,
       "id": 72,
@@ -3046,7 +3046,7 @@
         "h": 9,
         "w": 8,
         "x": 16,
-        "y": 76
+        "y": 72
       },
       "hiddenSeries": false,
       "id": 62,
@@ -3132,7 +3132,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 85
+        "y": 81
       },
       "hiddenSeries": false,
       "id": 66,
@@ -3226,7 +3226,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 85
+        "y": 81
       },
       "hiddenSeries": false,
       "id": 70,
@@ -3320,7 +3320,7 @@
         "h": 9,
         "w": 8,
         "x": 16,
-        "y": 85
+        "y": 81
       },
       "hiddenSeries": false,
       "id": 73,
@@ -3414,7 +3414,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 94
+        "y": 90
       },
       "hiddenSeries": false,
       "id": 69,
@@ -3507,7 +3507,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 94
+        "y": 90
       },
       "hiddenSeries": false,
       "id": 51,
@@ -3659,7 +3659,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 103
+        "y": 99
       },
       "id": 52,
       "links": [],
@@ -3713,7 +3713,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 103
+        "y": 99
       },
       "hiddenSeries": false,
       "id": 85,
@@ -3810,7 +3810,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 112
+        "y": 108
       },
       "id": 44,
       "panels": [],
@@ -3833,7 +3833,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 113
+        "y": 109
       },
       "hiddenSeries": false,
       "id": 42,
@@ -3882,7 +3882,7 @@
           "hide": false,
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{__name__}} {{instance}}",
+          "legendFormat": "{{__name__}} {{pod}}",
           "refId": "A"
         },
         {
@@ -3896,7 +3896,7 @@
           "hide": false,
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "delta g1 old g total {{instance}}",
+          "legendFormat": "delta g1 old g total {{pod}}",
           "refId": "B"
         },
         {
@@ -3910,7 +3910,7 @@
           "hide": false,
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "delta g1 young g total {{instance}}",
+          "legendFormat": "delta g1 young g total {{pod}}",
           "refId": "C"
         },
         {
@@ -3987,7 +3987,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 113
+        "y": 109
       },
       "hiddenSeries": false,
       "id": 60,
@@ -4030,7 +4030,7 @@
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "vm live threads {{instance}}",
+          "legendFormat": "vm live threads {{pod}}",
           "refId": "A"
         }
       ],
@@ -4083,7 +4083,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 122
+        "y": 118
       },
       "hiddenSeries": false,
       "id": 59,
@@ -4193,7 +4193,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 131
+        "y": 127
       },
       "hiddenSeries": false,
       "id": 86,
@@ -4294,7 +4294,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 140
+        "y": 136
       },
       "id": 102,
       "panels": [],
@@ -4315,7 +4315,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 141
+        "y": 137
       },
       "hiddenSeries": false,
       "id": 106,
@@ -4410,7 +4410,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 141
+        "y": 137
       },
       "hiddenSeries": false,
       "id": 97,
@@ -4500,7 +4500,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 141
+        "y": 137
       },
       "hiddenSeries": false,
       "id": 108,
@@ -4586,7 +4586,7 @@
         "h": 8,
         "w": 10,
         "x": 0,
-        "y": 149
+        "y": 145
       },
       "heatmap": {},
       "hideZeroBuckets": true,
@@ -4644,7 +4644,7 @@
         "h": 8,
         "w": 8,
         "x": 10,
-        "y": 149
+        "y": 145
       },
       "hiddenSeries": false,
       "id": 135,
@@ -4734,7 +4734,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 157
+        "y": 153
       },
       "id": 47,
       "panels": [],
@@ -4756,7 +4756,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 158
+        "y": 154
       },
       "hiddenSeries": false,
       "id": 49,
@@ -4807,7 +4807,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "label_replace({__name__=~\"neo4j_(.*)_cypher_replan_events_total\", job='$job', pod=~\"$neo4j_instance\"}, \"label\", \"$1.$2\", \"__name__\", \"neo4j_(.*)_cypher_replan_events_total(.+)\")",
+          "expr": "label_replace({__name__=~\"neo4j_(.*)_cypher_replan_events_total\", job='$job', pod=~\"$neo4j_instance\"}, \"label\", \"$1.$2\", \"__name__\", \"neo4j_(.*)_cypher_replan_events_total(.*)\")",
           "hide": false,
           "interval": "",
           "legendFormat": "{{pod}}: {{label}}",
@@ -4863,7 +4863,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 158
+        "y": 154
       },
       "hiddenSeries": false,
       "id": 136,
@@ -4960,7 +4960,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 167
+        "y": 163
       },
       "id": 78,
       "panels": [],
@@ -4996,7 +4996,7 @@
       },
       {
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "neo4j-vm-preprod",
           "value": "neo4j-vm-preprod"
         },
