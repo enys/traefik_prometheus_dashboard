@@ -20,7 +20,7 @@
   "gnetId": 10371,
   "graphTooltip": 0,
   "id": 9,
-  "iteration": 1657539665122,
+  "iteration": 1657540312620,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -144,7 +144,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 5
+        "y": 29
       },
       "id": 14,
       "panels": [],
@@ -212,7 +212,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 6
+        "y": 30
       },
       "id": 2,
       "links": [],
@@ -327,7 +327,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 6
+        "y": 30
       },
       "id": 40,
       "links": [],
@@ -454,7 +454,7 @@
         "h": 8,
         "w": 3,
         "x": 16,
-        "y": 6
+        "y": 30
       },
       "id": 82,
       "links": [],
@@ -551,7 +551,7 @@
         "h": 8,
         "w": 3,
         "x": 19,
-        "y": 6
+        "y": 30
       },
       "id": 91,
       "links": [],
@@ -650,7 +650,7 @@
         "h": 5,
         "w": 2,
         "x": 22,
-        "y": 6
+        "y": 30
       },
       "id": 121,
       "links": [],
@@ -704,7 +704,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 14
+        "y": 38
       },
       "id": 16,
       "panels": [],
@@ -753,7 +753,7 @@
         "h": 2,
         "w": 2,
         "x": 0,
-        "y": 15
+        "y": 39
       },
       "id": 8,
       "links": [],
@@ -854,7 +854,7 @@
         "h": 4,
         "w": 3,
         "x": 2,
-        "y": 15
+        "y": 39
       },
       "id": 81,
       "links": [],
@@ -953,7 +953,7 @@
         "h": 4,
         "w": 3,
         "x": 5,
-        "y": 15
+        "y": 39
       },
       "id": 84,
       "links": [],
@@ -1064,7 +1064,7 @@
         "h": 10,
         "w": 8,
         "x": 8,
-        "y": 15
+        "y": 39
       },
       "id": 23,
       "links": [],
@@ -1162,7 +1162,7 @@
         "h": 10,
         "w": 8,
         "x": 16,
-        "y": 15
+        "y": 39
       },
       "id": 3,
       "links": [],
@@ -1280,7 +1280,7 @@
         "h": 2,
         "w": 2,
         "x": 0,
-        "y": 17
+        "y": 41
       },
       "id": 19,
       "links": [],
@@ -1348,7 +1348,7 @@
         "h": 7,
         "w": 8,
         "x": 0,
-        "y": 19
+        "y": 43
       },
       "hiddenSeries": false,
       "id": 7,
@@ -1480,7 +1480,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 25
+        "y": 49
       },
       "hiddenSeries": false,
       "id": 39,
@@ -1585,7 +1585,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 25
+        "y": 49
       },
       "hiddenSeries": false,
       "id": 38,
@@ -1690,7 +1690,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 26
+        "y": 50
       },
       "hiddenSeries": false,
       "id": 35,
@@ -1797,7 +1797,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 34
+        "y": 58
       },
       "id": 115,
       "panels": [],
@@ -1818,7 +1818,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 35
+        "y": 59
       },
       "hiddenSeries": false,
       "id": 113,
@@ -1895,7 +1895,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 43
+        "y": 67
       },
       "id": 21,
       "panels": [],
@@ -1918,7 +1918,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 44
+        "y": 68
       },
       "hiddenSeries": false,
       "id": 18,
@@ -2012,7 +2012,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 44
+        "y": 68
       },
       "hiddenSeries": false,
       "id": 25,
@@ -2154,7 +2154,7 @@
         "h": 9,
         "w": 8,
         "x": 16,
-        "y": 44
+        "y": 68
       },
       "hiddenSeries": false,
       "id": 58,
@@ -2247,7 +2247,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 53
+        "y": 77
       },
       "hiddenSeries": false,
       "id": 31,
@@ -2341,7 +2341,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 53
+        "y": 77
       },
       "hiddenSeries": false,
       "id": 33,
@@ -2436,7 +2436,7 @@
         "h": 9,
         "w": 8,
         "x": 16,
-        "y": 53
+        "y": 77
       },
       "hiddenSeries": false,
       "id": 57,
@@ -2522,7 +2522,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 62
+        "y": 86
       },
       "id": 29,
       "panels": [],
@@ -2545,7 +2545,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 63
+        "y": 87
       },
       "hiddenSeries": false,
       "id": 61,
@@ -2639,7 +2639,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 63
+        "y": 87
       },
       "hiddenSeries": false,
       "id": 71,
@@ -2733,7 +2733,7 @@
         "h": 9,
         "w": 8,
         "x": 16,
-        "y": 63
+        "y": 87
       },
       "hiddenSeries": false,
       "id": 74,
@@ -2841,7 +2841,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 72
+        "y": 96
       },
       "hiddenSeries": false,
       "id": 63,
@@ -2948,7 +2948,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 72
+        "y": 96
       },
       "hiddenSeries": false,
       "id": 72,
@@ -3034,7 +3034,7 @@
         "h": 9,
         "w": 8,
         "x": 16,
-        "y": 72
+        "y": 96
       },
       "hiddenSeries": false,
       "id": 62,
@@ -3120,7 +3120,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 81
+        "y": 105
       },
       "hiddenSeries": false,
       "id": 66,
@@ -3214,7 +3214,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 81
+        "y": 105
       },
       "hiddenSeries": false,
       "id": 70,
@@ -3308,7 +3308,7 @@
         "h": 9,
         "w": 8,
         "x": 16,
-        "y": 81
+        "y": 105
       },
       "hiddenSeries": false,
       "id": 73,
@@ -3402,7 +3402,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 90
+        "y": 114
       },
       "hiddenSeries": false,
       "id": 69,
@@ -3495,7 +3495,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 90
+        "y": 114
       },
       "hiddenSeries": false,
       "id": 51,
@@ -3589,7 +3589,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 99
+        "y": 123
       },
       "hiddenSeries": false,
       "id": 52,
@@ -3690,7 +3690,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 99
+        "y": 123
       },
       "hiddenSeries": false,
       "id": 85,
@@ -3787,7 +3787,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 108
+        "y": 132
       },
       "id": 44,
       "panels": [],
@@ -3810,7 +3810,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 109
+        "y": 133
       },
       "hiddenSeries": false,
       "id": 42,
@@ -3964,7 +3964,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 109
+        "y": 133
       },
       "hiddenSeries": false,
       "id": 60,
@@ -4060,7 +4060,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 118
+        "y": 142
       },
       "hiddenSeries": false,
       "id": 59,
@@ -4170,7 +4170,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 127
+        "y": 151
       },
       "hiddenSeries": false,
       "id": 86,
@@ -4271,7 +4271,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 136
+        "y": 160
       },
       "id": 102,
       "panels": [],
@@ -4292,7 +4292,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 137
+        "y": 161
       },
       "hiddenSeries": false,
       "id": 106,
@@ -4387,7 +4387,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 137
+        "y": 161
       },
       "hiddenSeries": false,
       "id": 97,
@@ -4477,7 +4477,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 137
+        "y": 161
       },
       "hiddenSeries": false,
       "id": 108,
@@ -4563,7 +4563,7 @@
         "h": 8,
         "w": 10,
         "x": 0,
-        "y": 145
+        "y": 169
       },
       "heatmap": {},
       "hideZeroBuckets": true,
@@ -4621,7 +4621,7 @@
         "h": 8,
         "w": 8,
         "x": 10,
-        "y": 145
+        "y": 169
       },
       "hiddenSeries": false,
       "id": 135,
@@ -4711,7 +4711,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 153
+        "y": 177
       },
       "id": 47,
       "panels": [],
@@ -4733,7 +4733,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 154
+        "y": 178
       },
       "hiddenSeries": false,
       "id": 49,
@@ -4840,7 +4840,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 154
+        "y": 178
       },
       "hiddenSeries": false,
       "id": 136,
@@ -4937,7 +4937,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 163
+        "y": 187
       },
       "id": 78,
       "panels": [],
@@ -4973,38 +4973,9 @@
       },
       {
         "current": {
-          "selected": false,
-          "text": "neo4j-eenys-admin",
-          "value": "neo4j-eenys-admin"
-        },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
-        },
-        "definition": "label_values(job)",
-        "hide": 0,
-        "includeAll": false,
-        "multi": false,
-        "name": "job",
-        "options": [],
-        "query": {
-          "query": "label_values(job)",
-          "refId": "StandardVariableQuery"
-        },
-        "refresh": 2,
-        "regex": "neo4j-.*",
-        "skipUrlSync": false,
-        "sort": 0,
-        "tagValuesQuery": "",
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
-      },
-      {
-        "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
+          "selected": true,
+          "text": "neo4j-dev",
+          "value": "neo4j-dev"
         },
         "datasource": {
           "type": "prometheus",
@@ -5031,31 +5002,29 @@
         "useTags": false
       },
       {
-        "allValue": "",
         "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
+          "selected": true,
+          "text": "neo4j-eenys-admin",
+          "value": "neo4j-eenys-admin"
         },
         "datasource": {
           "type": "prometheus",
           "uid": "${DS_PROMETHEUS}"
         },
-        "definition": "label_values(node_uname_info{env=~\"$env\"}, pod)",
+        "definition": "label_values({namespace=~\"$env\"}, job)",
         "hide": 0,
         "includeAll": true,
-        "label": "Host:",
         "multi": false,
-        "name": "node",
+        "name": "job",
         "options": [],
         "query": {
-          "query": "label_values(node_uname_info{env=~\"$env\"}, pod)",
+          "query": "label_values({namespace=~\"$env\"}, job)",
           "refId": "StandardVariableQuery"
         },
-        "refresh": 1,
-        "regex": "",
+        "refresh": 2,
+        "regex": "neo4j-.*",
         "skipUrlSync": false,
-        "sort": 1,
+        "sort": 0,
         "tagValuesQuery": "",
         "tagsQuery": "",
         "type": "query",
@@ -5063,7 +5032,7 @@
       },
       {
         "current": {
-          "selected": false,
+          "selected": true,
           "text": [
             "neo4j-eenys-0"
           ],
@@ -5212,9 +5181,41 @@
           }
         ],
         "query": "30s,1m,2m,3m,5m,10m,30m,1h,6h,12h,1d,7d,14d,30d",
+        "queryValue": "",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
+      },
+      {
+        "allValue": "",
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
+        },
+        "definition": "label_values(node_uname_info{env=~\"$env\"}, pod)",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Host:",
+        "multi": false,
+        "name": "node",
+        "options": [],
+        "query": {
+          "query": "label_values(node_uname_info{env=~\"$env\"}, pod)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
       }
     ]
   },
