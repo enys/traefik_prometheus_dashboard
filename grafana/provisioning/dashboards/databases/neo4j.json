@@ -18,9 +18,9 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "gnetId": 10371,
-  "graphTooltip": 0,
+  "graphTooltip": 1,
   "id": 9,
-  "iteration": 1657540312620,
+  "iteration": 1657546151038,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -144,7 +144,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 29
+        "y": 5
       },
       "id": 14,
       "panels": [],
@@ -212,7 +212,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 30
+        "y": 6
       },
       "id": 2,
       "links": [],
@@ -327,7 +327,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 30
+        "y": 6
       },
       "id": 40,
       "links": [],
@@ -454,7 +454,7 @@
         "h": 8,
         "w": 3,
         "x": 16,
-        "y": 30
+        "y": 6
       },
       "id": 82,
       "links": [],
@@ -551,7 +551,7 @@
         "h": 8,
         "w": 3,
         "x": 19,
-        "y": 30
+        "y": 6
       },
       "id": 91,
       "links": [],
@@ -650,7 +650,7 @@
         "h": 5,
         "w": 2,
         "x": 22,
-        "y": 30
+        "y": 6
       },
       "id": 121,
       "links": [],
@@ -704,7 +704,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 38
+        "y": 14
       },
       "id": 16,
       "panels": [],
@@ -753,7 +753,7 @@
         "h": 2,
         "w": 2,
         "x": 0,
-        "y": 39
+        "y": 15
       },
       "id": 8,
       "links": [],
@@ -854,7 +854,7 @@
         "h": 4,
         "w": 3,
         "x": 2,
-        "y": 39
+        "y": 15
       },
       "id": 81,
       "links": [],
@@ -953,7 +953,7 @@
         "h": 4,
         "w": 3,
         "x": 5,
-        "y": 39
+        "y": 15
       },
       "id": 84,
       "links": [],
@@ -1064,7 +1064,7 @@
         "h": 10,
         "w": 8,
         "x": 8,
-        "y": 39
+        "y": 15
       },
       "id": 23,
       "links": [],
@@ -1162,7 +1162,7 @@
         "h": 10,
         "w": 8,
         "x": 16,
-        "y": 39
+        "y": 15
       },
       "id": 3,
       "links": [],
@@ -1280,7 +1280,7 @@
         "h": 2,
         "w": 2,
         "x": 0,
-        "y": 41
+        "y": 17
       },
       "id": 19,
       "links": [],
@@ -1332,55 +1332,84 @@
       "type": "stat"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
         "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
-      "decimals": 0,
       "description": "Active Transactions - Read and Write - \nand Peak concurrent",
-      "fill": 1,
-      "fillGradient": 0,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 7,
         "w": 8,
         "x": 0,
-        "y": 43
+        "y": 19
       },
-      "hiddenSeries": false,
       "id": 7,
-      "legend": {
-        "alignAsTable": false,
-        "avg": false,
-        "current": true,
-        "hideZero": false,
-        "max": false,
-        "min": false,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
       "links": [],
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "asc"
+        }
       },
-      "paceLength": 10,
-      "percentage": false,
       "pluginVersion": "8.4.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
           "datasource": {
@@ -1431,85 +1460,89 @@
           "refId": "B"
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "Active Transactions",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
       "transparent": true,
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:1491",
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:1492",
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
         "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
       "description": "Per-second average rate of increase of Committed Transactions",
-      "fill": 1,
-      "fillGradient": 0,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 49
+        "y": 25
       },
-      "hiddenSeries": false,
       "id": 39,
-      "legend": {
-        "avg": false,
-        "current": true,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
       "links": [],
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
       },
-      "paceLength": 10,
-      "percentage": false,
       "pluginVersion": "8.4.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
           "datasource": {
@@ -1536,85 +1569,89 @@
           "refId": "A"
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "Committed Read Transaction Rate",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
       "transparent": true,
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:1647",
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:1648",
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
         "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
       "description": "Per-second average rate of increase of Committed Transactions",
-      "fill": 1,
-      "fillGradient": 0,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 49
+        "y": 25
       },
-      "hiddenSeries": false,
       "id": 38,
-      "legend": {
-        "avg": false,
-        "current": true,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
       "links": [],
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
       },
-      "paceLength": 10,
-      "percentage": false,
       "pluginVersion": "8.4.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
           "datasource": {
@@ -1641,85 +1678,89 @@
           "refId": "A"
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "Committed Write Transaction Rate",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
       "transparent": true,
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:1725",
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:1726",
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
         "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
       "description": "Per-second average rate of increase of Committed Transactions",
-      "fill": 2,
-      "fillGradient": 0,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 20,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 50
+        "y": 26
       },
-      "hiddenSeries": false,
       "id": 35,
-      "legend": {
-        "avg": false,
-        "current": true,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
       "links": [],
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
       },
-      "paceLength": 10,
-      "percentage": false,
       "pluginVersion": "8.4.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
           "datasource": {
@@ -1758,38 +1799,9 @@
           "refId": "C"
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "Committed Transaction Rate",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
       "transparent": true,
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:1569",
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:1570",
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
       "collapsed": false,
@@ -1797,7 +1809,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 58
+        "y": 34
       },
       "id": 115,
       "panels": [],
@@ -1818,7 +1830,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 59
+        "y": 35
       },
       "hiddenSeries": false,
       "id": 113,
@@ -1895,7 +1907,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 67
+        "y": 43
       },
       "id": 21,
       "panels": [],
@@ -1918,7 +1930,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 68
+        "y": 44
       },
       "hiddenSeries": false,
       "id": 18,
@@ -2012,7 +2024,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 68
+        "y": 44
       },
       "hiddenSeries": false,
       "id": 25,
@@ -2062,7 +2074,7 @@
           "instant": false,
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "Bolt Msg Queue Length {{instance}}",
+          "legendFormat": "Bolt Msg Queue Length {{pod}}",
           "refId": "A"
         },
         {
@@ -2154,7 +2166,7 @@
         "h": 9,
         "w": 8,
         "x": 16,
-        "y": 68
+        "y": 44
       },
       "hiddenSeries": false,
       "id": 58,
@@ -2247,7 +2259,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 77
+        "y": 53
       },
       "hiddenSeries": false,
       "id": 31,
@@ -2341,7 +2353,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 77
+        "y": 53
       },
       "hiddenSeries": false,
       "id": 33,
@@ -2436,7 +2448,7 @@
         "h": 9,
         "w": 8,
         "x": 16,
-        "y": 77
+        "y": 53
       },
       "hiddenSeries": false,
       "id": 57,
@@ -2522,7 +2534,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 86
+        "y": 62
       },
       "id": 29,
       "panels": [],
@@ -2545,7 +2557,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 87
+        "y": 63
       },
       "hiddenSeries": false,
       "id": 61,
@@ -2639,7 +2651,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 87
+        "y": 63
       },
       "hiddenSeries": false,
       "id": 71,
@@ -2733,7 +2745,7 @@
         "h": 9,
         "w": 8,
         "x": 16,
-        "y": 87
+        "y": 63
       },
       "hiddenSeries": false,
       "id": 74,
@@ -2841,7 +2853,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 96
+        "y": 72
       },
       "hiddenSeries": false,
       "id": 63,
@@ -2948,7 +2960,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 96
+        "y": 72
       },
       "hiddenSeries": false,
       "id": 72,
@@ -3034,7 +3046,7 @@
         "h": 9,
         "w": 8,
         "x": 16,
-        "y": 96
+        "y": 72
       },
       "hiddenSeries": false,
       "id": 62,
@@ -3120,7 +3132,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 105
+        "y": 81
       },
       "hiddenSeries": false,
       "id": 66,
@@ -3214,7 +3226,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 105
+        "y": 81
       },
       "hiddenSeries": false,
       "id": 70,
@@ -3308,7 +3320,7 @@
         "h": 9,
         "w": 8,
         "x": 16,
-        "y": 105
+        "y": 81
       },
       "hiddenSeries": false,
       "id": 73,
@@ -3402,7 +3414,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 114
+        "y": 90
       },
       "hiddenSeries": false,
       "id": 69,
@@ -3495,7 +3507,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 114
+        "y": 90
       },
       "hiddenSeries": false,
       "id": 51,
@@ -3574,57 +3586,97 @@
       }
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
         "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
       "description": "Neo4j Checkpoints. \nCheckpointing is the process of flushing all pending page updates from the page cache to the store files",
-      "fill": 1,
-      "fillGradient": 0,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "check_point_total_time_total"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "ms"
+              }
+            ]
+          }
+        ]
+      },
       "gridPos": {
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 123
+        "y": 99
       },
-      "hiddenSeries": false,
       "id": 52,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 2,
       "links": [],
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
-      },
-      "paceLength": 10,
-      "percentage": false,
-      "pluginVersion": "8.4.5",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "$$hashKey": "object:3351",
-          "alias": "check_point_total_time_total",
-          "yaxis": 2
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
         }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      },
+      "pluginVersion": "8.4.5",
       "targets": [
         {
           "datasource": {
@@ -3641,38 +3693,9 @@
           "refId": "A"
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "Checkpoints",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
       "transparent": true,
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:3358",
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:3359",
-          "format": "ms",
-          "logBase": 1,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
       "aliasColors": {},
@@ -3690,7 +3713,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 123
+        "y": 99
       },
       "hiddenSeries": false,
       "id": 85,
@@ -3787,7 +3810,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 132
+        "y": 108
       },
       "id": 44,
       "panels": [],
@@ -3810,7 +3833,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 133
+        "y": 109
       },
       "hiddenSeries": false,
       "id": 42,
@@ -3964,7 +3987,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 133
+        "y": 109
       },
       "hiddenSeries": false,
       "id": 60,
@@ -4060,7 +4083,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 142
+        "y": 118
       },
       "hiddenSeries": false,
       "id": 59,
@@ -4170,7 +4193,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 151
+        "y": 127
       },
       "hiddenSeries": false,
       "id": 86,
@@ -4271,7 +4294,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 160
+        "y": 136
       },
       "id": 102,
       "panels": [],
@@ -4292,7 +4315,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 161
+        "y": 137
       },
       "hiddenSeries": false,
       "id": 106,
@@ -4387,7 +4410,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 161
+        "y": 137
       },
       "hiddenSeries": false,
       "id": 97,
@@ -4477,7 +4500,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 161
+        "y": 137
       },
       "hiddenSeries": false,
       "id": 108,
@@ -4563,7 +4586,7 @@
         "h": 8,
         "w": 10,
         "x": 0,
-        "y": 169
+        "y": 145
       },
       "heatmap": {},
       "hideZeroBuckets": true,
@@ -4621,7 +4644,7 @@
         "h": 8,
         "w": 8,
         "x": 10,
-        "y": 169
+        "y": 145
       },
       "hiddenSeries": false,
       "id": 135,
@@ -4711,7 +4734,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 177
+        "y": 153
       },
       "id": 47,
       "panels": [],
@@ -4733,7 +4756,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 178
+        "y": 154
       },
       "hiddenSeries": false,
       "id": 49,
@@ -4840,7 +4863,7 @@
         "h": 9,
         "w": 8,
         "x": 8,
-        "y": 178
+        "y": 154
       },
       "hiddenSeries": false,
       "id": 136,
@@ -4937,7 +4960,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 187
+        "y": 163
       },
       "id": 78,
       "panels": [],
@@ -4974,8 +4997,8 @@
       {
         "current": {
           "selected": true,
-          "text": "neo4j-dev",
-          "value": "neo4j-dev"
+          "text": "neo4j-vm-preprod",
+          "value": "neo4j-vm-preprod"
         },
         "datasource": {
           "type": "prometheus",
@@ -5004,8 +5027,8 @@
       {
         "current": {
           "selected": true,
-          "text": "neo4j-eenys-admin",
-          "value": "neo4j-eenys-admin"
+          "text": "All",
+          "value": "$__all"
         },
         "datasource": {
           "type": "prometheus",
@@ -5034,10 +5057,10 @@
         "current": {
           "selected": true,
           "text": [
-            "neo4j-eenys-0"
+            "v4small-m"
           ],
           "value": [
-            "neo4j-eenys-0"
+            "v4small-m"
           ]
         },
         "datasource": {
@@ -5065,7 +5088,8 @@
       {
         "allValue": "",
         "current": {
-          "selected": false,
+          "isNone": true,
+          "selected": true,
           "text": "None",
           "value": ""
         },
