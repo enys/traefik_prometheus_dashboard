@@ -3903,7 +3903,7 @@
             "uid": "prometheus"
           },
           "exemplar": true,
-          "expr": "delta({__name__=~\".+_vm_gc_time_g1_old_generation_total, job=\"$job\", pod=~\"$neo4j_instance\"}[$interval])",
+          "expr": "delta({__name__=~\".+_vm_gc_time_g1_old_generation_total\", job=\"$job\", pod=~\"$neo4j_instance\"}[$interval])",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -3917,7 +3917,7 @@
             "uid": "prometheus"
           },
           "exemplar": true,
-          "expr": "delta({__name__=~\".+_vm_gc_time_g1_young_generation_total, job=\"$job\", pod=~\"$neo4j_instance\"}[$interval])",
+          "expr": "delta({__name__=~\".+_vm_gc_time_g1_young_generation_total\", job=\"$job\", pod=~\"$neo4j_instance\"}[$interval])",
           "format": "time_series",
           "hide": false,
           "interval": "",
