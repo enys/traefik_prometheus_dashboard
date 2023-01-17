@@ -3889,7 +3889,7 @@
             "uid": "prometheus"
           },
           "exemplar": true,
-          "expr": "{__name__=~\"neo4j_vm_gc_time_g1_.+_generation_total\", job=\"$job\", pod=~\"$neo4j_instance\"}",
+          "expr": "{__name__=~\".+_vm_gc_time_g1_.+_generation_total\", job=\"$job\", pod=~\"$neo4j_instance\"}",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -3903,7 +3903,7 @@
             "uid": "prometheus"
           },
           "exemplar": true,
-          "expr": "delta(neo4j_vm_gc_time_g1_old_generation_total{job=\"$job\", pod=~\"$neo4j_instance\"}[$interval])",
+          "expr": "delta({__name__=~\".+_vm_gc_time_g1_old_generation_total, job=\"$job\", pod=~\"$neo4j_instance\"}[$interval])",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -3917,7 +3917,7 @@
             "uid": "prometheus"
           },
           "exemplar": true,
-          "expr": "delta(neo4j_vm_gc_time_g1_young_generation_total{job=\"$job\", pod=~\"$neo4j_instance\"}[$interval])",
+          "expr": "delta({__name__=~\".+_vm_gc_time_g1_young_generation_total, job=\"$job\", pod=~\"$neo4j_instance\"}[$interval])",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -4134,7 +4134,7 @@
             "uid": "prometheus"
           },
           "exemplar": true,
-          "expr": "sum({__name__=~\"neo4j_vm_memory_pool_g1_(eden|old|survivor).*\", job=\"$job\", pod=~\"$neo4j_instance\"}) by (pod)",
+          "expr": "sum({__name__=~\".+_vm_memory_pool_g1_(eden|old|survivor).*\", job=\"$job\", pod=~\"$neo4j_instance\"}) by (pod)",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -4148,7 +4148,7 @@
             "uid": "prometheus"
           },
           "exemplar": true,
-          "expr": "sum({__name__=~\"neo4j_vm_memory_pool_(code|compressed|metaspace).*\", job=\"$job\", pod=~\"$neo4j_instance\"}) by (pod)",
+          "expr": "sum({__name__=~\".+_vm_memory_pool_(code|compressed|metaspace).*\", job=\"$job\", pod=~\"$neo4j_instance\"}) by (pod)",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -4244,7 +4244,7 @@
             "uid": "prometheus"
           },
           "exemplar": true,
-          "expr": "neo4j_vm_memory_buffer_direct_used{job=\"$job\", pod=~\"$neo4j_instance\"}",
+          "expr": "{__name__=~\"neo4j_.+vm_memory_buffer_direct_used\", job=\"$job\", pod=~\"$neo4j_instance\"}",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -4258,7 +4258,7 @@
             "uid": "prometheus"
           },
           "exemplar": true,
-          "expr": "neo4j_vm_memory_buffer_mapped_used{job=\"$job\", pod=~\"$neo4j_instance\"}",
+          "expr": "{__name__=~\"neo4j_vm_memory_buffer_mapped_used\", job=\"$job\", pod=~\"$neo4j_instance\"}",
           "format": "time_series",
           "hide": false,
           "interval": "",
