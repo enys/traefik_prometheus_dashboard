@@ -5057,7 +5057,7 @@
           "refId": "StandardVariableQuery"
         },
         "refresh": 2,
-        "regex": "neo4j-.*",
+        "regex": "neo4j.*",
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
