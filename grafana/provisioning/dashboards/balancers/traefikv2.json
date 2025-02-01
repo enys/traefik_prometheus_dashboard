@@ -999,10 +999,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(traefik_service_open_connections) by (method)",
+          "expr": "sum(traefik_open_connections) by (pod)",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{ method }}",
+          "legendFormat": "{{ pod }}",
           "refId": "A"
         }
       ],
@@ -1010,7 +1010,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "SERVICE - Open Connections",
+      "title": "Pod - Open Connections",
       "tooltip": {
         "shared": true,
         "sort": 0,
