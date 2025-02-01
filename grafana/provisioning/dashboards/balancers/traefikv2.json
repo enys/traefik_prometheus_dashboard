@@ -904,10 +904,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(traefik_entrypoint_open_connections) by (method)",
+          "expr": "sum(traefik_open_connections) by (entrypoint)",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{ method }}",
+          "legendFormat": "{{ entrypoint}}",
           "refId": "A"
         }
       ],
