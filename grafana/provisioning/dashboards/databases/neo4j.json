@@ -1975,7 +1975,7 @@
             "uid": "prometheus"
           },
           "exemplar": true,
-          "expr": "label_replace({__name__=~\"neo4j_bolt_messages_(done|failed)_total\", job='$job', pod=~\"$neo4j_instance\"}, \"label\", \"$1\", \"__name__\", \"neo4j_bolt_messages_(.+)\")",
+          "expr": "label_replace({__name__=~\"neo4j_dbms_bolt_messages_(received|started)_total\", job='$job', pod=~\"$neo4j_instance\"}, \"label\", \"$1\", \"__name__\", \"neo4j_dbms_bolt_messages_(.+)\")",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1985,7 +1985,7 @@
       ],
       "thresholds": [],
       "timeRegions": [],
-      "title": "Bolt Messages (done vs failed)",
+      "title": "Bolt Messages (received vs started)",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -2076,7 +2076,7 @@
             "uid": "prometheus"
           },
           "exemplar": true,
-          "expr": "neo4j_bolt_messages_received_total{job='$job', pod=~\"$neo4j_instance\"} - neo4j_bolt_messages_started_total{job='$job', pod=~\"$neo4j_instance\"}",
+          "expr": "neo4j_dbms_bolt_messages_received_total{job='$job', pod=~\"$neo4j_instance\"} - neo4j_dbms_bolt_messages_started_total{job='$job', pod=~\"$neo4j_instance\"}",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -2091,7 +2091,7 @@
             "uid": "prometheus"
           },
           "exemplar": true,
-          "expr": "label_replace({__name__=~\"neo4j_bolt_messages_(received|started)_total\", job=\"$job\", pod=~\"$neo4j_instance\"}, \"label\", \"$1\", \"__name__\", \"neo4j_bolt_messages_(.+)\")",
+          "expr": "label_replace({__name__=~\"neo4j_dbms_bolt_messages_(received|started)_total\", job=\"$job\", pod=~\"$neo4j_instance\"}, \"label\", \"$1\", \"__name__\", \"neo4j_dbms_bolt_messages_(.+)\")",
           "format": "time_series",
           "hide": true,
           "instant": false,
@@ -2105,7 +2105,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "rate(neo4j_bolt_messages_received_total{job=\"$job\", instance=~\"$neo4j_instance\"}[$interval])",
+          "expr": "rate(neo4j_dbms_bolt_messages_received_total{job=\"$job\", instance=~\"$neo4j_instance\"}[$interval])",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -2119,7 +2119,7 @@
             "uid": "prometheus"
           },
           "exemplar": true,
-          "expr": "rate(neo4j_bolt_messages_started_total{job=\"$job\", pod=~\"$neo4j_instance\"}[$interval])",
+          "expr": "rate(neo4j_dbms_bolt_messages_started_total{job=\"$job\", pod=~\"$neo4j_instance\"}[$interval])",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -2215,7 +2215,7 @@
             "uid": "prometheus"
           },
           "exemplar": true,
-          "expr": "rate(neo4j_bolt_accumulated_queue_time_total{job=\"$job\", pod=~\"$neo4j_instance\"}[$interval])",
+          "expr": "rate(neo4j_dbms_bolt_accumulated_queue_time_total{job=\"$job\", pod=~\"$neo4j_instance\"}[$interval])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -2308,7 +2308,7 @@
             "uid": "prometheus"
           },
           "exemplar": true,
-          "expr": "label_replace({__name__=~\"neo4j_bolt_connections_.+\", job=\"$job\", pod=~\"$neo4j_instance\"}, \"label\", \"$1\", \"__name__\", \"neo4j_bolt_connections_(.+)\")",
+          "expr": "label_replace({__name__=~\"neo4j_dbms_bolt_connections_.+\", job=\"$job\", pod=~\"$neo4j_instance\"}, \"label\", \"$1\", \"__name__\", \"neo4j_dbms_bolt_connections_(.+)\")",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -2402,7 +2402,7 @@
             "uid": "prometheus"
           },
           "exemplar": true,
-          "expr": "label_replace({__name__=~\"neo4j_bolt_sessions.+\",  job=\"$job\", pod=~\"$neo4j_instance\"}, \"label\", \"$1\", \"__name__\", \"neo4j_bolt_sessions_(.+)\")",
+          "expr": "label_replace({__name__=~\"neo4j_dbms_bolt_sessions.+\",  job=\"$job\", pod=~\"$neo4j_instance\"}, \"label\", \"$1\", \"__name__\", \"neo4j_dbms_bolt_sessions_(.+)\")",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -2497,7 +2497,7 @@
             "uid": "prometheus"
           },
           "exemplar": true,
-          "expr": "rate(neo4j_bolt_accumulated_processing_time_total{job=\"$job\", pod=~\"$neo4j_instance\"}[$interval])",
+          "expr": "rate(neo4j_dbms_bolt_accumulated_processing_time_total{job=\"$job\", pod=~\"$neo4j_instance\"}[$interval])",
           "format": "time_series",
           "hide": false,
           "instant": false,
