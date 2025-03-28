@@ -4038,7 +4038,7 @@
             "uid": "prometheus"
           },
           "exemplar": true,
-          "expr": "neo4j_vm_thread_count{job=\"$job\", pod=~\"$neo4j_instance\"}",
+          "expr": "neo4j_dbms_vm_thread_count{job=\"$job\", pod=~\"$neo4j_instance\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -4258,7 +4258,7 @@
             "uid": "prometheus"
           },
           "exemplar": true,
-          "expr": "{__name__=~\"neo4j_vm_memory_buffer_mapped_used\", job=\"$job\", pod=~\"$neo4j_instance\"}",
+          "expr": "{__name__=~\"neo4j_dbms_vm_memory_buffer_mapped_used\", job=\"$job\", pod=~\"$neo4j_instance\"}",
           "format": "time_series",
           "hide": false,
           "interval": "",
