@@ -4,7 +4,7 @@ version: '3.7'
 
 services:
   grafana:
-   image: grafana/grafana:8.5.4
+   image: grafana/grafana:8.5.27
    volumes:
      - grafana_data:/var/lib/grafana
      - ./grafana/provisioning:/etc/grafana/provisioning
