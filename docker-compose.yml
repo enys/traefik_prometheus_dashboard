@@ -70,7 +70,7 @@ services:
       - "traefik.http.middlewares.alertmanager-auth.basicauth.users=${TRAEFIK_BASICAUTH}"
 
   pushgateway:
-    image: prom/pushgateway:v1.4.3
+    image: prom/pushgateway:v1.11.1
     container_name: pushgateway
     restart: unless-stopped
     networks:
