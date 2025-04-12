@@ -79,7 +79,7 @@ services:
       - "org.label-schema.group=monitoring"
 
   blackboxexporter:
-    image: prom/blackbox-exporter:v0.19.0
+    image: prom/blackbox-exporter:v0.26.0
     container_name: blackboxexporter
     volumes:
     - ./blackbox_exporter:/etc/blackbox_exporter
