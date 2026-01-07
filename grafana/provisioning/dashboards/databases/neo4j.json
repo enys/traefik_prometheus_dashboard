@@ -113,9 +113,11 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "8.4.5",
+      "pluginVersion": "12.3.0",
       "repeat": "neo4j_instance",
       "repeatDirection": "h",
       "targets": [
@@ -229,7 +231,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "8.4.5",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "datasource": {
@@ -344,7 +346,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "8.4.5",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "datasource": {
@@ -471,8 +473,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.4.5",
-      "repeatDirection": "v",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "datasource": {
@@ -568,7 +569,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.4.5",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "datasource": {
@@ -667,8 +668,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.4.5",
-      "repeatDirection": "v",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "datasource": {
@@ -770,9 +770,11 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "8.4.5",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "datasource": {
@@ -869,9 +871,10 @@
           "values": false
         },
         "showThresholdLabels": false,
-        "showThresholdMarkers": true
+        "showThresholdMarkers": true,
+        "sizing": "auto"
       },
-      "pluginVersion": "8.4.5",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "datasource": {
@@ -968,9 +971,10 @@
           "values": false
         },
         "showThresholdLabels": false,
-        "showThresholdMarkers": true
+        "showThresholdMarkers": true,
+        "sizing": "auto"
       },
-      "pluginVersion": "8.4.5",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "datasource": {
@@ -1172,14 +1176,15 @@
             "lastNotNull"
           ],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "8.4.5",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "datasource": {
@@ -1297,9 +1302,11 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "8.4.5",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "datasource": {
@@ -1405,11 +1412,12 @@
           "placement": "bottom"
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "asc"
         }
       },
-      "pluginVersion": "8.4.5",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "datasource": {
@@ -1535,14 +1543,16 @@
             "lastNotNull"
           ],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "8.4.5",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "datasource": {
@@ -1644,14 +1654,16 @@
             "lastNotNull"
           ],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "8.4.5",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "datasource": {
@@ -1753,14 +1765,16 @@
             "lastNotNull"
           ],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "8.4.5",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "datasource": {
@@ -5031,10 +5045,7 @@
         "regex": "neo4j.*",
         "skipUrlSync": false,
         "sort": 1,
-        "tagValuesQuery": "",
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
+        "type": "query"
       },
       {
         "current": {
@@ -5057,13 +5068,8 @@
           "refId": "StandardVariableQuery"
         },
         "refresh": 2,
-        "regex": "neo4j.*",
-        "skipUrlSync": false,
-        "sort": 0,
-        "tagValuesQuery": "",
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
+        "regex": ".*neo4j.*",
+        "type": "query"
       },
       {
         "current": {
@@ -5079,23 +5085,20 @@
           "type": "prometheus",
           "uid": "${DS_PROMETHEUS}"
         },
-        "definition": "label_values({job=~\"neo4j.*\", namespace=~\"$env\"}, pod)",
-        "hide": 0,
+        "definition": "label_values({job=~\"$job\", namespace=~\"$env\"},pod)",
         "includeAll": true,
         "label": "Neo4j instance",
         "multi": true,
         "name": "neo4j_instance",
         "options": [],
         "query": {
-          "query": "label_values({job=~\"neo4j.*\", namespace=~\"$env\"}, pod)",
-          "refId": "StandardVariableQuery"
+          "qryType": 1,
+          "query": "label_values({job=~\"$job\", namespace=~\"$env\"},pod)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,
         "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
-        "type": "query",
-        "useTags": false
+        "type": "query"
       },
       {
         "allValue": "",
@@ -5121,12 +5124,7 @@
         },
         "refresh": 2,
         "regex": "/instance=\\\"(.+)\\\",/",
-        "skipUrlSync": false,
-        "sort": 0,
-        "tagValuesQuery": "",
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
+        "type": "query"
       },
       {
         "auto": true,
@@ -5248,10 +5246,7 @@
         "regex": "",
         "skipUrlSync": false,
         "sort": 1,
-        "tagValuesQuery": "",
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
+        "type": "query"
       }
     ]
   },
@@ -5287,6 +5282,6 @@
   "timezone": "",
   "title": "Neo4j Dashboard",
   "uid": "VdDGFqUik",
-  "version": 1,
+  "version":2,
   "weekStart": ""
 }
