@@ -1,7 +1,5 @@
 ---
 
-version: '3.7'
-
 services:
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:v0.55.1
@@ -37,7 +35,7 @@ services:
       - /etc/hostname:/etc/host_hostname:ro
         #- /run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
     environment:
-      - HOST_HOSTNAME:/etc/host_hostname
+      - HOST_HOSTNAME=/etc/host_hostname
     command:
       - '--path.procfs=/host/proc'
       - '--path.rootfs=/rootfs'
